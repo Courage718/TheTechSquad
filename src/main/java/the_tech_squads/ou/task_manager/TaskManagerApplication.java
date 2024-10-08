@@ -30,5 +30,6 @@ public class TaskManagerApplication {
 
 		scheduler.start();
 		scheduler.scheduleJob(job, trigger);
+
 	}
 }
