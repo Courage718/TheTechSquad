@@ -29,4 +29,11 @@ body {
   border: none;
   font-size: medium;
   cursor: pointer;
+  border-radius: 5px;
+  transform: background 0.3s ease;
+}
+
+.get-started-btn:hover{
+    background-color: var(--backup-color);
+    color: var(--bg-primary);
 }
