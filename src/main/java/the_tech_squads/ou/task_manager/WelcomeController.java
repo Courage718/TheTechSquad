@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class WelcomeController {
 
-    @GetMapping("/hi")
+    @GetMapping("/")
     public String welcome(){
-        return "sample_html_page";
+        return "index";
     }
 
 
