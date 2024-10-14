@@ -17,11 +17,39 @@ body {
   background-color: var(--bg-primary);
 }
 
-.nav-bar {
+.navbar {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color: var(--backup-color);
+  margin-bottom: 50px;
+  padding: 3%;
 }
+
+.navbar h1{
+
+}
+
+.navbar nav ul{
+  display: flex;
+}
+
+.navbar ul li{
+  list-style: none;
+}
+
+.navbar ul li a{
+  text-decoration: none;
+  margin-right: 20px;
+  color: var(--font-color-primary);
+  transition: color 0.3 ease;
+}
+
+.navbar ul li a:hover{
+  color: var(--bg-primary);
+  cursor: pointer;
+}
+
 .get-started-btn {
   background-color: var(--font-color-primary);
   color: var(--bg-primary);
@@ -36,4 +64,83 @@ body {
 .get-started-btn:hover{
     background-color: var(--backup-color);
     color: var(--bg-primary);
+    cursor: pointer;
 }
+
+.beginning-intro{
+  margin: 20px;
+  padding: 30px;
+}
+
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--font-color-primary);
+}
+
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+  padding: 1em;
+  font-size: larger;
+}
+
+.app-features{
+  /* margin: 70px; */
+  padding: 40px;
+  background-color: var(--backup-color);
+  transition: color 0.3 ease;
+}
+
+.app-features:hover{
+  background-color: var(--font-color-primary);
+  cursor: pointer;
+}
+
+.features-intro h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  color: var(--bg-primary);
+}
+
+.features-intro p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  margin: 10px;
+  padding: 2em;
+  color: var(--bg-primary);
+}
+
+.feature-detail{
+  margin: 0;
+  padding: 2em;
+}
+
+.feature-detail h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  columns: var(--bg-primary);
+  color: var(--bg-primary);
+}
+
+.feature-detail p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  columns: var(--bg-primary);
+  color: var(--bg-primary);
+  margin: 40px;
+}
+
