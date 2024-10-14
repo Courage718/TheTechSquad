@@ -1,10 +1,7 @@
 * {
-  /* supress browser defaults and select alt box model */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif, Tahoma;
-  /* set variables for colors */
   --bg-primary: #a4bab7;
   --bg-secondary: #334139;
   --font-color-primary: #996888;
