@@ -62,7 +62,7 @@ body {
 }
 
 .get-started-btn:hover{
-    background-color: var(--backup-color);
+    background-color: var(--font-color-secondary);
     color: var(--bg-primary);
     cursor: pointer;
 }
@@ -144,3 +144,100 @@ body {
   margin: 40px;
 }
 
+.more-detail{
+  margin: 0;
+  padding: 2em;
+}
+
+.more-detail h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  columns: var(--bg-primary);
+  color: var(--bg-primary);
+}
+
+.more-detail p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  columns: var(--bg-primary);
+  color: var(--bg-primary);
+  margin: 40px;
+}
+
+.regis{
+  margin: 10px;
+  padding: 40px;
+}
+
+.regis .info{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.regis .info h3{
+  font-size: x-large;
+  font-weight: 400;
+}
+
+.regis .info p{
+  font-size: large;
+  margin: 10px;
+  padding: auto;
+}
+
+footer{
+  background: var(--bg-secondary);
+  padding: 80px 50px 40px;
+  margin-top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer .cols {
+  display: flex;
+  align-items: flex-start;
+  margin: 5px;
+  padding: 5em;
+  }
+
+  footer .cols .about-col{
+    flex: 5;
+  }
+
+  footer .cols .links-col{
+    margin-left: 40px;
+    flex: 5;
+  }
+
+  footer .cols .links-col a {
+    display: block;
+    text-decoration: none;
+    color: var(--bg-primary);
+    font-size: 14px;
+    line-height: 26px;
+    transition: color 0.3s ease;
+  }
+
+  footer .cols .links-col a:hover{
+    color: var(--font-color-primary);
+  }
+
+  footer .cols .git-link-col{
+    flex: 5;
+  }
+
+  footer .cols .git-link-col a{
+    text-decoration: none;
+    color: var(--bg-primary);
+    transition: color 0.3s ease;
+  }
+
+  footer .cols .git-link-col a:hover{
+    color: var(--font-color-primary);
+  }
