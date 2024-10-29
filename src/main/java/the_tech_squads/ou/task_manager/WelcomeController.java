@@ -13,6 +13,10 @@ public class WelcomeController {
     public String welcome(){
         return "index";
     }
+    @GetMapping("/login")
+    public String login(){
+        return "login_page";
+    }
 
 
 }
