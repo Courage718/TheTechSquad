@@ -23,4 +23,12 @@ public class UserService {
     public User save(User user) {
         return userRepository.save(user);
     }
+
+
+
+
+    public boolean authenticate(String email, String password) {
+        User user = userRepository.findByEmail(email);
+        return user != null && user.getPassword().equals(password); // Use hashed passwords in production
+    }
 }
