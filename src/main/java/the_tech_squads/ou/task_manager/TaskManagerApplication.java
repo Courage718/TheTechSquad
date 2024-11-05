@@ -8,6 +8,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TaskManagerApplication {
 
+	public static int time;
+
+	public TaskManagerApplication(int Time) {
+
+
+
+	}
+
+
 	public static void main(String[] args) throws SchedulerException {
 		SpringApplication.run(TaskManagerApplication.class, args);
 		scheduleMyTask();
@@ -24,7 +33,7 @@ public class TaskManagerApplication {
 				.withIdentity("myTrigger", "group1")
 				.startNow()
 				.withSchedule(SimpleScheduleBuilder.simpleSchedule()
-						.withIntervalInSeconds(10)
+						.withIntervalInSeconds(time)
 						.repeatForever())
 				.build();
 
