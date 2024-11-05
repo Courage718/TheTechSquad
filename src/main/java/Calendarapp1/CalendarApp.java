@@ -1,4 +1,4 @@
-package org.example;
+package Calendarapp1;
 
 import javax.swing.*;
 import java.awt.*;
