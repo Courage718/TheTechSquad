@@ -13,7 +13,8 @@ public class nlpMain {
     public String getProcessedTask(){
         return processedTask;
     }
-    public static void main(String[] args){
+
+    public void runNLP(){
 
         TaskController controller = new TaskController();
         String userInput = controller.addTask();
