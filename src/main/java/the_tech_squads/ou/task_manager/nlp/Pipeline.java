@@ -12,7 +12,7 @@ import opennlp.tools.tokenize.TokenizerModel;
 import opennlp.tools.util.*;
 import opennlp.tools.util.model.ModelUtil;
 
-import java.io.File;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,46 +38,60 @@ public class Pipeline {
 
     }
 
-    public String[] breakSentences(){
+    public String[] breakSentences() throws IOException {
 
-        SentenceDetectorME sentenceDetector = new SentenceDetectorME(new SentenceModel(/*input sentence detector model*/));
+        try (InputStream model = new FileInputStream("en-sent.bin")){
 
-        String[] sentences = sentenceDetector.sentDetect(userInput);
+            SentenceDetectorME sentenceDetector = new SentenceDetectorME(new SentenceModel(model));
 
-        return sentences;
+            String[] sentences = sentenceDetector.sentDetect(userInput);
+
+            return sentences;
+        }
     }
 
 
-    public String[] tokenize(String sentence){
+    public String[] tokenize(String sentence) throws IOException{
 
-        TokenizerME tokenizer = new TokenizerME(new TokenizerModel(/*input tokenizer model*/));
+        try(InputStream model = new FileInputStream("en-token.bin")) {
 
-        String[] tokens = tokenizer.tokenize(sentence);
+            TokenizerME tokenizer = new TokenizerME(new TokenizerModel(model));
 
-        return tokens;
+            String[] tokens = tokenizer.tokenize(sentence);
+
+            return tokens;
+
+        }
     }
 
-    public String[] POSTag(String[] tokens, DoccatModel doccatModel){
+    public String[] POSTag(String[] tokens, DoccatModel doccatModel) throws IOException{
 
-        POSTaggerME POSTagger = new POSTaggerME(new POSModel(/*input POStag model*/));
+        try(InputStream model = new FileInputStream("en-pos-maxent.bin")) {
 
-        String[] POSTags = POSTagger.tag(tokens);
+            POSTaggerME POSTagger = new POSTaggerME(new POSModel(model));
 
-        return POSTags;
+            String[] POSTags = POSTagger.tag(tokens);
+
+            return POSTags;
+        }
     }
 
-    public String[] lemmatizeTokens(String[] tokens, String[] POSTags){
+    public String[] lemmatizeTokens(String[] tokens, String[] POSTags) throws IOException{
 
-        LemmatizerME lemmatizer = new LemmatizerME(new LemmatizerModel(/*input lemmatizer model*/));
+        try(InputStream model = new FileInputStream("en-lemmatizer.bin")) {
 
-        String[] lemmatizedTokens = lemmatizer.lemmatize(tokens, POSTags);
+            LemmatizerME lemmatizer = new LemmatizerME(new LemmatizerModel(model));
 
-        return lemmatizedTokens;
+            String[] lemmatizedTokens = lemmatizer.lemmatize(tokens, POSTags);
+
+            return lemmatizedTokens;
+
+        }
     }
 
-    public DoccatModel trainDoccatModel(){
+    public void trainDoccatModel() throws IOException{
 
-        InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File(/*include filename/path for model file*/));
+        InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File(/*include filename for model file*/));
         ObjectStream<String> lineStream = new PlainTextByLineStream(inputStreamFactory, StandardCharsets.UTF_8);
         ObjectStream<DocumentSample> sample = new DocumentSampleStream(lineStream);
 
@@ -89,7 +103,7 @@ public class Pipeline {
         // Train a model with classifications from above file.
         DoccatModel model = DocumentCategorizerME.train("en", sample, params, factory);
 
-        return model;
+        this.doccatModel = model;
     }
 
     public String detectCategory(DoccatModel model, String[] tokens){
