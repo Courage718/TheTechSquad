@@ -1,94 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Task Manager</title>
-    <link rel="stylesheet" href="../static/css/front_styling.css" />
-  </head>
-  <body>
-    <header class="navbar">
-      <h1>TechSquad Task Manager</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About </a></li>
-          <li><a href="#">Task Manager</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-      <a href="/login"><button class="get-started-btn">Log In</button></a>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="../static/css/front_styling.css" />
+  <script>
+    function openCalendarApp() {
+      // This function is a placeholder for launching the Java CalendarApp.
+      alert("To open the calendar, please run the Java application separately.");
+    }
+  </script>
+</head>
+<body>
+<header class="navbar">
+  <h1>TechSquad Task Manager</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Task Manager</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#" onclick="openCalendarApp()">Calendar</a></li>
+    </ul>
+  </nav>
+  <a href="/login"><button class="get-started-btn">Log In</button></a>
+</header>
 
-    <main>
-      <section class="beginning-intro">
-        <div>
-          <h2 class="main" id="intro">Welcome to TechSquad Task Manager!</h2>
-          <p class="title">A smart way to organize your tasks</p>
-          <!-- <p class="subtitle">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sunt
-            illo dolorum expedita. Ab commodi at facere pariatur quas, omnis
-            porro dicta enim, quasi perferendis fuga animi? Sed, debitis
-            quaerat. -->
-          </p>
-        </div>
-        
-        <!-- <button class="get-started-btn">Get Started</button> -->
-      </section>
+<main>
+  <section class="beginning-intro">
+    <div>
+      <h2 class="main" id="intro">Welcome to TechSquad Task Manager!</h2>
+      <p class="title">A smart way to organize your tasks</p>
+      <!-- <p class="subtitle">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sunt
+        illo dolorum expedita. Ab commodi at facere pariatur quas, omnis
+        porro dicta enim, quasi perferendis fuga animi? Sed, debitis
+        quaerat. -->
+      </p>
+    </div>
 
-      <!-- describes the features -->
-      <section class="app-features">
-        <div class="features-intro">
-          <h2>Smart Task Manager</h2>
-          <p>Insert what our task manager can do</p>
-        </div>
-        <div class="feature-detail">
-          <h2>Scheduling made simpler and more effective</h2>
-          <p>What are its features and how it benifts the user</p>
-        </div>
-        <div class="more-detail">
-          <h2>Desgined to prioritize you</h2>
-          <p>Some Information</p>
-        </div>
-      </section>
+    <!-- <button class="get-started-btn">Get Started</button> -->
+  </section>
 
-      <section class="regis">
-        <div class="info">
-          <h3>Start prioritizing you</h3>
-          <p>Ready to get started with organizing youe life? Then lets get started.</p>
-          <button class="get-started-btn">Get Started</button>
-        </div>
-      </section>
-    </main>
+  <!-- describes the features -->
+  <section class="app-features">
+    <div class="features-intro">
+      <h2>Smart Task Manager</h2>
+      <p>Insert what our task manager can do</p>
+    </div>
+    <div class="feature-detail">
+      <h2>Scheduling made simpler and more effective</h2>
+      <p>What are its features and how it benifts the user</p>
+    </div>
+    <div class="more-detail">
+      <h2>Designed to prioritize you</h2>
+      <p>Some Information</p>
+    </div>
+  </section>
 
-    <footer>
-      <!-- <div class="start">
-        <h3>Start a new Journey to?</h3>
-        <p>Lorem ipsum dolor sit amet consectetur.</p>
-        <button>Get In Touch</button>
-      </div> -->
+  <section class="regis">
+    <div class="info">
+      <h3>Start prioritizing you</h3>
+      <p>Ready to get started with organizing your life? Then let's get started.</p>
+      <button class="get-started-btn">Get Started</button>
+    </div>
+  </section>
+</main>
 
-      <!-- footer columns for socials and nav repeats / call to action -->
-      <div class="cols">
-        <div class="about-col">
-          <h3>TechSquad Task Manager</h3>
-          <p>Smart Task Manager</p>
-        </div>
+<footer>
+  <div class="cols">
+    <div class="about-col">
+      <h3>TechSquad Task Manager</h3>
+      <p>Smart Task Manager</p>
+    </div>
 
-        <div class="links-col">
-          <h4>Useful Links</h4>
-          <a href="./index.html">Home</a>
-          <a href="#">About</a>
-          <a href="#">Task Manager</a>
-          <a href="#">Contact</a>
-          <a href="./login_page.html">Log In</a>
-        </div>
+    <div class="links-col">
+      <h4>Useful Links</h4>
+      <a href="./index.html">Home</a>
+      <a href="#">About</a>
+      <a href="#">Task Manager</a>
+      <a href="#">Contact</a>
 
-        <div class="git-link-col">
-          <h4>Useful Links</h4>
-          <a href="#">Github</a>
-        </div>
-      </div>
-      <p class="copy-right">&copy;2024 The TechSquad. All rights reserved.</p>
-    </footer>
-  </body>
+      <a href="#" onclick="openCalendarApp()">Calendar</a>
+      <a href="./login_page.html">Log In</a>
+    </div>
+
+    <div class="git-link-col">
+      <h4>Useful Links</h4>
+      <a href="#">Github</a>
+    </div>
+  </div>
+  <p class="copy-right">&copy;2024 The TechSquad. All rights reserved.</p>
+</footer>
+</body>
 </html>
