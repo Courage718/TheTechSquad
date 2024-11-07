@@ -37,6 +37,7 @@
 .navbar nav ul li {
     margin: 10px;
     list-style-type: none;
+    font-size: 20px;
 }
 
 .navbar nav ul li a{
@@ -44,12 +45,20 @@
     text-decoration: none;
 }
 
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
 .get-started-btn {
   background-color: var(--font-color-primary);
   color: var(--bg-primary);
   padding: 5px 10px;
   border: none;
-  font-size: medium;
+  font-size: 20px;
   cursor: pointer;
   border-radius: 5px;
   transform: background 0.3s ease;
@@ -89,7 +98,27 @@
     margin: 10px;
 }
 
+.login-section form input {
+    font-size: 20px;
+    cursor: pointer;
+}
 
+.login-section form button {
+    border-radius: 5px;
+    margin: 20px;
+    padding: 10px 20px;
+    width: 80%;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--bg-primary);
+    background-color: var(--bg-secondary);
+    transition: color 0.3s ease;
+}
+
+.login-section form button:hover {
+    color: var(--font-color-primary);
+}
 
 footer{
   background: var(--bg-secondary);
@@ -105,40 +134,40 @@ footer .cols {
   align-items: flex-start;
   margin: 5px;
   padding: 5em;
-  }
+}
 
-  footer .cols .about-col{
+footer .cols .about-col{
     flex: 5;
-  }
+}
 
-  footer .cols .links-col{
+footer .cols .links-col{
     margin-left: 40px;
     flex: 5;
-  }
+}
 
-  footer .cols .links-col a {
+footer .cols .links-col a {
     display: block;
     text-decoration: none;
     color: var(--bg-primary);
     font-size: 14px;
     line-height: 26px;
     transition: color 0.3s ease;
-  }
+}
 
-  footer .cols .links-col a:hover{
+footer .cols .links-col a:hover{
     color: var(--font-color-primary);
-  }
+}
 
-  footer .cols .git-link-col{
+footer .cols .git-link-col{
     flex: 5;
-  }
+}
 
-  footer .cols .git-link-col a{
+footer .cols .git-link-col a{
     text-decoration: none;
     color: var(--bg-primary);
     transition: color 0.3s ease;
-  }
+}
 
-  footer .cols .git-link-col a:hover{
+footer .cols .git-link-col a:hover{
     color: var(--font-color-primary);
-  }
+}
