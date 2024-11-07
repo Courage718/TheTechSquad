@@ -5,11 +5,50 @@
     <title>user input task</title>
 </head>
 <body>
-<form action="#" th:action="@{/task}" method="post">
-    <label for="userInput">Type in your task:</label>
-    <input type="text" id="userInput" name="userInput" >
-    <br>
-    <button type="submit">OK!</button>
-</form>
+    <header class="navbar">
+      <h1>TechSquad Task Manager</h1>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="#">About </a></li>
+          <li><a href="#">Task Manager</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav> 
+    </header>
+
+    <main>
+        <form action="#" th:action="@{/task}" method="post">
+            <label for="userInput">Type in your task:</label>
+            <input type="text" id="userInput" name="userInput" >
+            <br>
+            <button type="submit">OK!</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="cols">
+        <div class="about-col">
+          <h3>TechSquad Task Manager</h3>
+          <p>Smart Task Manager</p>
+        </div>
+
+        <div class="links-col">
+          <h4>Useful Links</h4>
+          <a href="./index.html">Home</a>
+          <a href="#">About</a>
+          <a href="#">Task Manager</a>
+          <a href="#">Contact</a>
+          <a href="./login_page.html">Log In</a>
+        </div>
+
+        <div class="git-link-col">
+          <h4>Useful Links</h4>
+          <a href="#">Github</a>
+        </div>
+      </div>
+      <p class="copy-right">&copy;2024 The TechSquad. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
