@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../static/css/login_page_styling.css">
 </head>
 
 <body>
@@ -18,8 +19,10 @@
           <li><a href="#">Contact</a></li>
           <li><a href="./login_page.html">Log In</a></li>
         </ul>
+    </header>
 
-    <div class="login-section">
+    <main class="login-section">
+        <div>
         <h2>Login</h2>
         <form action="#" th:action="@{/login}" method="post">
             <label for="email">Email:</label>
@@ -31,6 +34,10 @@
             <button type="submit">Login</button>
         </form>
     </div>
-    
+    </main>
+
+    <footer>
+
+    </footer>
 </body>
 </html>
