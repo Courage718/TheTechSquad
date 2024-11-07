@@ -1,3 +1,5 @@
+package Calendarapp1;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
@@ -24,7 +26,7 @@ public class CalendarApp {
 
         frame = new JFrame("Interactive Calendar with Reminders");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
+        frame.setSize(800, 800);
         frame.setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel();
