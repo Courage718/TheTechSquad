@@ -1,9 +1,10 @@
-package Calendarapp1;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
+import java.util.Calendar;
+
+import org.quartz.*;
+import org.quartz.impl.StdSchedulerFactory;
 
 public class CalendarApp {
     private JFrame frame;
@@ -11,9 +12,11 @@ public class CalendarApp {
     private JPanel calendarPanel;
     private int currentMonth;
     private int currentYear;
-    private Map<String, String> reminders;
+    private Map<String, String> reminders; // Store reminders with "YYYY-MM-DD" as the key
+    private Scheduler scheduler;
 
     public CalendarApp() {
+
         Calendar calendar = new GregorianCalendar();
         currentMonth = calendar.get(Calendar.MONTH);
         currentYear = calendar.get(Calendar.YEAR);
@@ -21,7 +24,7 @@ public class CalendarApp {
 
         frame = new JFrame("Interactive Calendar with Reminders");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
+        frame.setSize(500, 500);
         frame.setLayout(new BorderLayout());
 
         JPanel topPanel = new JPanel();
@@ -47,6 +50,8 @@ public class CalendarApp {
         frame.add(calendarPanel, BorderLayout.CENTER);
 
         displayCalendar(currentMonth, currentYear);
+
+        startScheduler();
 
         frame.setVisible(true);
     }
@@ -94,12 +99,17 @@ public class CalendarApp {
 
         for (int day = 1; day <= daysInMonth; day++) {
             String dateKey = String.format("%d-%02d-%02d", year, month + 1, day);
-            JButton dayButton = new JButton(String.valueOf(day));
-            dayButton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+            String reminderText = reminders.get(dateKey);
+            String buttonText = reminderText == null ? String.valueOf(day) : "<html><b>" + day + "</b><br>" + reminderText + "</html>";
 
-            if (reminders.containsKey(dateKey)) {
+            JButton dayButton = new JButton(buttonText);
+            dayButton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+            dayButton.setHorizontalAlignment(SwingConstants.CENTER);
+            dayButton.setVerticalAlignment(SwingConstants.TOP);
+
+            if (reminderText != null) {
                 dayButton.setBackground(Color.YELLOW);
-                dayButton.setToolTipText("Reminder: " + reminders.get(dateKey));
+                dayButton.setToolTipText("Reminder: " + reminderText);
             }
 
             dayButton.addActionListener(e -> openReminderDialog(dateKey));
@@ -127,6 +137,48 @@ public class CalendarApp {
         }
 
         displayCalendar(currentMonth, currentYear);
+    }
+
+    private void startScheduler() {
+        try {
+            scheduler = StdSchedulerFactory.getDefaultScheduler();
+
+            JobDetail job = JobBuilder.newJob(ReminderJob.class)
+                    .withIdentity("reminderJob", "group1")
+                    .build();
+
+            job.getJobDataMap().put("reminders", reminders);
+
+            Trigger trigger = TriggerBuilder.newTrigger()
+                    .withIdentity("reminderTrigger", "group1")
+                    .withSchedule(SimpleScheduleBuilder.simpleSchedule()
+                            .withIntervalInSeconds(10)
+                            .repeatForever())
+                    .build();
+
+            scheduler.scheduleJob(job, trigger);
+            scheduler.start();
+
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static class ReminderJob implements Job {
+        @Override
+        public void execute(JobExecutionContext context) {
+            Map<String, String> reminders = (Map<String, String>) context.getJobDetail().getJobDataMap().get("reminders");
+
+            Calendar calendar = Calendar.getInstance();
+            String todayKey = String.format("%d-%02d-%02d",
+                    calendar.get(Calendar.YEAR),
+                    calendar.get(Calendar.MONTH) + 1,
+                    calendar.get(Calendar.DAY_OF_MONTH));
+
+            if (reminders.containsKey(todayKey)) {
+                JOptionPane.showMessageDialog(null, "Reminder for Today: " + reminders.get(todayKey), "Reminder", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }
 
     public static void main(String[] args) {

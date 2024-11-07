@@ -2,6 +2,8 @@ package the_tech_squads.ou.task_manager.nlp;
 
 import opennlp.tools.doccat.DoccatModel;
 
+import java.io.IOException;
+
 public class nlpMain {
     String userInput;// input string coming from web
     String processedTask;//possible output
@@ -13,13 +15,14 @@ public class nlpMain {
     public String getProcessedTask(){
         return processedTask;
     }
-    public static void main(String[] args){
+
+    public void runNLP() throws IOException{
 
         TaskController controller = new TaskController();
         String userInput = controller.addTask();
         Pipeline pipeline = new Pipeline(userInput);
 
-        DoccatModel model = pipeline.trainDoccatModel();
+        pipeline.trainDoccatModel();
 
         String[] sentences = pipeline.breakSentences();
 
@@ -33,7 +36,7 @@ public class nlpMain {
 
             String[] lemmatizedTokens = pipeline.lemmatizeTokens(tokens, POStags);
 
-            String category = pipeline.detectCategory(model, lemmatizedTokens);
+            String category = pipeline.detectCategory(pipeline.doccatModel, lemmatizedTokens);
 
             //get task prefix for specific task categories
             outputPrefix = pipeline.prefix.get(category);
