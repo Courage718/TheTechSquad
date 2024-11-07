@@ -120,6 +120,17 @@ main {
     color: var(--font-color-primary);
 }
 
+.login-section a {
+    text-decoration: none;
+    color: var(--font-color-primary);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.login-section a:hover {
+    color: var(--bg-primary);
+}
+
 footer{
   background: var(--bg-secondary);
   padding: 80px 50px 40px;
