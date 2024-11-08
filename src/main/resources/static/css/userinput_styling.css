@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    --bg-primary: #a4bab7;
+    --bg-secondary: #334139;
+    --font-color-primary: #996888;
+    --font-color-secondary: #2c1320;
+    --backup-color: #334139;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 1em;
+}
+
+.navbar h1 {
+    font-size: 40px;
+    font-weight: 600;
+}
+ 
+.navbar ul { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.navbar ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 5px;
+    padding: .5em;
+}
+
+.navbar ul li a { 
+    text-decoration: none;
+}
+
+.input-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.task-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5px;
+    padding: 1em;
+}
+
+.task-name label {
+    font-size: 20px;
+    margin: 5px;
+    padding: .3em;
+}
+
+.task-name input {
+    width: 200px;
+    height: 30px;
+    cursor: pointer;
+    padding: .5em;
+    border-radius: 5px;
+}
+
+.task-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5px;
+    padding: 1em;
+}
+
+.task-description label {
+    font-size: 20px;
+    font-weight: 500;
+    /* margin: 0; */
+    padding: .3em;
+}
+
+.task-description textarea {
+    cursor: pointer;
+    padding: .5em;
+    border-radius: 10px;
+}
+
+
+.task-due {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* margin: 0px; */
+    /* padding: .5em; */
+}
+
+.task-due label {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 5px;
+    /* padding: .3em; */
+}
+
+.task-due input {
+    font-size: 20px;
+    /* margin: 0; */
+    padding: .3em;
+    border-radius: 10px;
+}
+
+.task-priority {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5px;
+    padding: 1em;
+}
+
+.task-priority label {
+    font-size: 20px;
+    font-weight: 500;
+    padding: .3em;
+}
+
+.task-priority select {
+    border-radius: 10px;
+    cursor: pointer;
+    width: 60px;
+    height: 25px;
+    padding: .2em;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.submit-btn button {
+    width: 100px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: .4em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.submit-btn button:hover {
+    background-color: var(--bg-primary);
+}
+
+footer{
+  background: var(--bg-secondary);
+  padding: 80px 50px 40px;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer .cols {
+  display: flex;
+  align-items: flex-start;
+  margin: 5px;
+  padding: 5em;
+}
+
+footer .cols .about-col{
+    flex: 5;
+}
+
+footer .cols .links-col{
+    margin-left: 40px;
+    flex: 5;
+}
+
+footer .cols .links-col a {
+    display: block;
+    text-decoration: none;
+    color: var(--bg-primary);
+    font-size: 14px;
+    line-height: 26px;
+    transition: color 0.3s ease;
+}
+
+footer .cols .links-col a:hover{
+    color: var(--font-color-primary);
+}
+
+footer .cols .git-link-col{
+    flex: 5;
+}
+
+footer .cols .git-link-col a{
+    text-decoration: none;
+    color: var(--bg-primary);
+    transition: color 0.3s ease;
+}
+
+footer .cols .git-link-col a:hover{
+    color: var(--font-color-primary);
+}
+

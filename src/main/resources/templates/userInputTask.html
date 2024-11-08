@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>user input task</title>
+    <link rel="stylesheet" href="../static/css/userinput_styling.css">
 </head>
 <body>
     <header class="navbar">
@@ -18,45 +19,45 @@
     </header>
 
     <main>
-      <section>
+      <section class="input-section">
           <div>
-          <form action="#" th:action="@{/task}" method="post">
-            <!-- <label for="userInput">Type in your task:</label>
-            <input type="text" id="userInput" name="userInput" >
-            <br>
-            <button type="submit">OK!</button> -->
+            <form action="#" th:action="@{/task}"   method="post">
+              <!-- <label for="userInput">Type in your task:</label>
+              <input type="text" id="userInput" name="userInput" >
+              <br>
+              <button type="submit">OK!</button> -->
 
-            <div>
-            <label for="taskName">Task Name:</label>
-            <input type="text" id="taskName" name="taskName" placeholder="Enter task name" required>
-            </div>
+              <div class="task-name">
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName" name="taskName" placeholder="Enter task name" required>
+              </div>
 
-            <div>
-            <label for="taskDescription">Description:</label>
-            <textarea id="taskDescription" name="taskDescription" rows="3" placeholder="Enter task description"></textarea>
-            </div>
-            
-            <div>
-            <label for="dueDate">Due Date:</label>
-            <input type="date" id="dueDate" name="dueDate">
-            </div>
+              <div class="task-description">
+                <label for="taskDescription">Description:</label>
+                <textarea id="taskDescription" name="taskDescription" rows="3" placeholder="Enter task description"></textarea>
+                </div>
+              
+              <div class="task-due">
+                <label for="dueDate">Due Date:</label>
+                <input type="date" id="dueDate" name="dueDate">
+              </div>
 
-            <div>
-            <label for="priority">Priority:</label>
+              <div class="task-priority">
+                <label for="priority">Priority:</label>
 
-            <select id="priority" name="priority">
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-            </select>
-            </div>
-        
-            <div>
-            <button type="submit">Add Task</button>
-            </div>
+                <select id="priority" name="priority">
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+          
+              <div class="submit-btn">
+                <button type="submit">Add Task</button>
+              </div>
 
-            </form>
-            </div>
+              </form>
+          </div>
       </section>
         
     </main>
