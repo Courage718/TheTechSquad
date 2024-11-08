@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class TaskController {
 
-//    @Autowired
+   //@Autowired
 //    private nlpMain nlpMain;
 
     @GetMapping("/task")
