@@ -18,9 +18,16 @@ public class TaskController {
         return "userInputTask";
     }
     @PostMapping("/task")
-    public String addTask(@RequestParam String userInput, Model model) {
+    public String addTask(@RequestParam String taskName,
+                          @RequestParam String taskDescription,
+                          @RequestParam String dueDate,
+                          @RequestParam String priority,
+                                      Model model) {
         //nlpMain.setUserInput(userInput);
-        model.addAttribute("task", userInput);//test task in web
+        System.out.println(taskDescription);
+        System.out.println(dueDate);
+        System.out.println(priority);
+        model.addAttribute("task", taskName);//test task in web
         return "bye";// This refers to html page
     }
 }
