@@ -20,7 +20,8 @@
 
     <main>
       <section class="input-section">
-          <div>
+
+            <div class="input-area">
             <form action="#" th:action="@{/task}"   method="post">
               <!-- <label for="userInput">Type in your task:</label>
               <input type="text" id="userInput" name="userInput" >
@@ -58,6 +59,12 @@
 
               </form>
           </div>
+
+          <div class="task-display">
+                <h2>Tasks</h2>
+                <div id="taskContainer"></div>
+          </div>
+
       </section>
         
     </main>

@@ -46,7 +46,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    margin: 0;
+    padding: 1em;
+}
+
+.input-section .input-area {
+    margin: 20px;
+    padding: 2em;
+}
+
+.input-section .task-display {
+    margin: 40px;
+    padding: 2em;
+}
+
+.task-display {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #4CAF50; /* Green border for the display area */
 }
 
 .task-name {
@@ -112,7 +134,7 @@
 }
 
 .task-due input {
-    font-size: 20px;
+    font-size: 15px;
     /* margin: 0; */
     padding: .3em;
     border-radius: 10px;
