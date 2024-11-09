@@ -19,17 +19,7 @@ public class RegistrationController {
         model.addAttribute("user", new User());
         return "registration";
     }
-//    @PostMapping("/registration")
-//    public String register(@RequestParam String firstName,
-//                           @RequestParam String lastName,
-//                           @RequestParam String email,
-//                           @RequestParam String password,
-//                           @RequestParam String confirmPassword,
-//                           Model model) {
-//        System.out.println(firstName);
-//        model.addAttribute("task", firstName);//test task in web
-//        return "bye";// This refers to html page
-//    }
+
     @PostMapping("/registration")
     public String submitForm(@ModelAttribute User user) {
         userRepository.save(user);

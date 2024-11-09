@@ -3,96 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <title>user input task</title>
-    <link rel="stylesheet" href="../static/css/userinput_styling.css">
+    <link rel="stylesheet" href="/css/userinput_styling.css">
     <script src="./task.js" defer> </script>
 </head>
 <body>
-    <header class="navbar">
-      <h1>TechSquad Task Manager</h1>
-      <nav>
+<header class="navbar">
+    <h1>TechSquad Task Manager</h1>
+    <nav>
         <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="#">About </a></li>
-          <li><a href="#">Task Manager</a></li>
-          <li><a href="#">Contact</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">About </a></li>
+            <li><a href="#">Task Manager</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
-      </nav> 
-    </header>
+    </nav>
+</header>
 
-    <main>
-      <section class="input-section">
+<main>
+    <section class="input-section">
 
-            <div class="input-area">
-            <form action="#" th:action="@{/task}"   method="post">
-              <!-- <label for="userInput">Type in your task:</label>
-              <input type="text" id="userInput" name="userInput" >
-              <br>
-              <button type="submit">OK!</button> -->
+        <div class="input-area">
+            <form action="#" th:action="@{/task}" th:object="${task}" method="post">
 
-              <div class="task-name">
-                <label for="taskName">Task Name:</label>
-                <input type="text" id="taskName" name="taskName" placeholder="Enter task name" required>
-              </div>
-
-              <div class="task-description">
-                <label for="taskDescription">Description:</label>
-                <textarea id="taskDescription" name="taskDescription" rows="3" placeholder="Enter task description"></textarea>
+                <div class="task-name">
+                    <label for="taskName">Task Name:</label>
+                    <input type="text" id="taskName" name="name" placeholder="Enter task name" required>
                 </div>
-              
-              <div class="task-due">
-                <label for="dueDate">Due Date:</label>
-                <input type="date" id="dueDate" name="dueDate">
-              </div>
 
-              <div class="task-priority">
-                <label for="priority">Priority:</label>
+                <div class="task-description">
+                    <label for="taskDescription">Description:</label>
+                    <textarea id="taskDescription" name="description" rows="3" placeholder="Enter task description"></textarea>
+                </div>
 
-                <select id="priority" name="priority">
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
-                </select>
-              </div>
-          
-              <div class="submit-btn">
-                <button type="submit">Add Task</button>
-              </div>
+                <div class="task-due">
+                    <label for="dueDate">Due Date:</label>
+                    <input type="date" id="dueDate" name="date">
+                </div>
 
-              </form>
-          </div>
+                <div class="task-priority">
+                    <label for="priority">Priority:</label>
 
-          <div class="task-display">
-                <h2>Tasks</h2>
-                <div id="taskContainer"></div>
-          </div>
+                    <select id="priority" name="priority">
+                        <option value="0">Low</option>
+                        <option value="1">Medium</option>
+                        <option value="2">High</option>
+                    </select>
+                </div>
 
-      </section>
-        
-    </main>
+                <div class="submit-btn">
+                    <button type="submit">Add Task</button>
+                </div>
 
-    <footer>
-        <div class="cols">
+            </form>
+        </div>
+
+        <div class="task-display">
+            <h2>Tasks</h2>
+            <div id="taskContainer"></div>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <div class="cols">
         <div class="about-col">
-          <h3>TechSquad Task Manager</h3>
-          <p>Smart Task Manager</p>
+            <h3>TechSquad Task Manager</h3>
+            <p>Smart Task Manager</p>
         </div>
 
         <div class="links-col">
-          <h4>Useful Links</h4>
-          <a href="./index.html">Home</a>
-          <a href="#">About</a>
-          <a href="#">Task Manager</a>
-          <a href="#">Contact</a>
-          <a href="./login_page.html">Log In</a>
+            <h4>Useful Links</h4>
+            <a href="./index.html">Home</a>
+            <a href="#">About</a>
+            <a href="#">Task Manager</a>
+            <a href="#">Contact</a>
+            <a href="./login_page.html">Log In</a>
         </div>
 
         <div class="git-link-col">
-          <h4>Useful Links</h4>
-          <a href="#">Github</a>
+            <h4>Useful Links</h4>
+            <a href="#">Github</a>
         </div>
-      </div>
-      <p class="copy-right">&copy;2024 The TechSquad. All rights reserved.</p>
-    </footer>
+    </div>
+    <p class="copy-right">&copy;2024 The TechSquad. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
