@@ -18,18 +18,8 @@ public class TaskController {
     public String inputTask(){
         return "userInputTask";
     }
-//    @PostMapping("/task")
-//    public String addTask(@RequestParam String userInput, Model model) {
-//        //nlpMain.setUserInput(userInput);
-//       // model.addAttribute("task", userInput);//test task in web
-//        System.out.println();
-//        return "bye";// This refers to html page
-//    }
-    @PostMapping("/task")
-    public Task saveTask(@RequestBody Task task) {
-        return taskService.save(task);
 
-    }
+
     @PostMapping(value = "/task", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String submitTask(@ModelAttribute Task task) {
        taskService.save(task);
