@@ -3,6 +3,8 @@ package the_tech_squads.ou.task_manager.nlp;
 import opennlp.tools.doccat.*;
 import opennlp.tools.lemmatizer.LemmatizerME;
 import opennlp.tools.lemmatizer.LemmatizerModel;
+import opennlp.tools.namefind.NameFinderME;
+import opennlp.tools.namefind.TokenNameFinderModel;
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.sentdetect.SentenceDetectorME;
@@ -14,7 +16,9 @@ import opennlp.tools.util.model.ModelUtil;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Pipeline {
@@ -65,6 +69,18 @@ public class Pipeline {
 
             return tokens;
 
+        }
+    }
+
+    public List<Span> dateRecognition(String[] tokens) throws IOException{
+
+        try(InputStream model = new FileInputStream("en-ner-date.bin")) {
+
+            NameFinderME nameFinder = new NameFinderME(new TokenNameFinderModel(model));
+
+            List<Span> date = Arrays.asList(nameFinder.find(tokens));
+
+            return date;
         }
     }
 
