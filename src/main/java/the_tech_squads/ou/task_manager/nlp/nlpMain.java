@@ -62,7 +62,7 @@ public class nlpMain {
                 task.setDate(/*task date*/);
                 task.setPriority(/*task priority*/);
 
-                task.submitTask(task);
+                TaskController.submitTask(task);
 
             }
 
