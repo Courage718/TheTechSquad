@@ -42,6 +42,7 @@ public class nlpMain {
             //get task prefix for specific task categories
             outputPrefix = pipeline.prefix.get(category);
 
+            //test statement
             System.out.println(outputPrefix);
 
         }

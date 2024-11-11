@@ -24,17 +24,21 @@ public class Pipeline {
     public String taskTime;
     public DoccatModel doccatModel;
 
+
     public Map<String, String> prefix = new HashMap<>();
 
-    {
-      //  prefix.
 
-    }
 
 
     public Pipeline (String UserInput){
 
         this.userInput = UserInput;
+
+        {
+            prefix.put("Reminder to ", "Remind me to");
+            prefix.put("Scheduled task to ", "Task created to ");
+
+        }
 
     }
 
