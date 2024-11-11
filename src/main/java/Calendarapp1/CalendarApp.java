@@ -9,13 +9,12 @@ import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
 public class CalendarApp {
-    private JFrame frame;
-    private JLabel monthLabel;
-    private JPanel calendarPanel;
+    private final JFrame frame;
+    private final JLabel monthLabel;
+    private final JPanel calendarPanel;
     private int currentMonth;
     private int currentYear;
-    private Map<String, String> reminders; // Store reminders with "YYYY-MM-DD" as the key
-    private Scheduler scheduler;
+    private final Map<String, String> reminders; // Store reminders with "YYYY-MM-DD" as the key
 
     public CalendarApp() {
 
@@ -143,7 +142,7 @@ public class CalendarApp {
 
     private void startScheduler() {
         try {
-            scheduler = StdSchedulerFactory.getDefaultScheduler();
+            Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
             JobDetail job = JobBuilder.newJob(ReminderJob.class)
                     .withIdentity("reminderJob", "group1")
