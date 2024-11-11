@@ -55,6 +55,7 @@ public class nlpMain {
             }
             else if ("task".equals(category)){
 
+                //adds task to task database
                 Task task = new Task();
 
                 task.setName(/*task name*/);
