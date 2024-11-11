@@ -39,8 +39,8 @@ public class Pipeline {
         this.userInput = UserInput;
 
         {
-            prefix.put("Reminder to ", "Remind me to");
-            prefix.put("Scheduled task to ", "Task created to ");
+            prefix.put("reminder","Reminder to ");
+            prefix.put("task","Scheduled task to ");
 
         }
 
@@ -83,6 +83,8 @@ public class Pipeline {
             return date;
         }
     }
+
+
 
     public String[] POSTag(String[] tokens, DoccatModel doccatModel) throws IOException{
 

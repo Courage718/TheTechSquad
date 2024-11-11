@@ -21,6 +21,8 @@ public class nlpMain {
         TaskController controller = new TaskController();
         String userInput = controller.addTask();
 
+        //determines whether we want a task or a reminder; will determine whether we want to place something in
+        //the calendar database or send it to the quartz scheduler to be triggered regularly as a reminder
         Pipeline pipeline = new Pipeline(userInput);
 
         pipeline.trainDoccatModel();
@@ -33,17 +35,34 @@ public class nlpMain {
 
             String[] tokens = pipeline.tokenize(sentence);
 
+            //processing for date detection
+
+            
+
+            //processing for categorization
             String[] POStags = pipeline.POSTag(tokens, pipeline.doccatModel);
 
             String[] lemmatizedTokens = pipeline.lemmatizeTokens(tokens, POStags);
 
             String category = pipeline.detectCategory(pipeline.doccatModel, lemmatizedTokens);
 
-            //get task prefix for specific task categories
+            if ("reminder".equals(category)){
+
+                //add code to trigger quartz scheduler
+
+            }
+            else if ("task".equals(category)){
+
+                //add code to store the task in the database
+
+            }
+
+            //Build output statement for the user; gives the user confirmation of the task they set
             outputPrefix = pipeline.prefix.get(category);
 
-            //test statement
-            System.out.println(outputPrefix);
+
+
+
 
         }
 
