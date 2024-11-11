@@ -3,6 +3,7 @@ package the_tech_squads.ou.task_manager.nlp;
 import opennlp.tools.doccat.DoccatModel;
 import the_tech_squads.ou.task_manager.controller.TaskController;
 import the_tech_squads.ou.task_manager.model.Task;
+import the_tech_squads.ou.task_manager.service.TaskService;
 
 import java.io.IOException;
 
@@ -62,7 +63,8 @@ public class nlpMain {
                 task.setDate(/*task date*/);
                 task.setPriority(/*task priority*/);
 
-                TaskController.submitTask(task);
+                TaskService taskService = new TaskService();
+                taskService.save(task);
 
             }
 
