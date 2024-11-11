@@ -1,6 +1,8 @@
 package the_tech_squads.ou.task_manager.nlp;
 
 import opennlp.tools.doccat.DoccatModel;
+import the_tech_squads.ou.task_manager.controller.TaskController;
+import the_tech_squads.ou.task_manager.model.Task;
 
 import java.io.IOException;
 
@@ -19,7 +21,7 @@ public class nlpMain {
     public void runNLP() throws IOException{
 
         TaskController controller = new TaskController();
-        String userInput = controller.addTask();
+        String userInput = controller.saveTask();
 
         //determines whether we want a task or a reminder; will determine whether we want to place something in
         //the calendar database or send it to the quartz scheduler to be triggered regularly as a reminder
@@ -53,7 +55,13 @@ public class nlpMain {
             }
             else if ("task".equals(category)){
 
-                //add code to store the task in the database
+                Task task = new Task();
+
+                task.setName(/*task name*/);
+                task.setDate(/*task date*/);
+                task.setPriority(/*task priority*/);
+
+                task.submitTask(task);
 
             }
 
