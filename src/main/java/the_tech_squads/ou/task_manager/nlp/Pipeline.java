@@ -80,11 +80,27 @@ public class Pipeline {
 
             List<Span> date = Arrays.asList(nameFinder.find(tokens));
 
+            //test statements
+            System.out.println(date);
+
             return date;
         }
     }
 
+    public List<Span> timeRecognition(String[] tokens) throws IOException{
 
+        try(InputStream model = new FileInputStream("en-ner-time.bin")) {
+
+            NameFinderME nameFinder = new NameFinderME(new TokenNameFinderModel(model));
+
+            List<Span> time = Arrays.asList(nameFinder.find(tokens));
+
+            //test statements
+            System.out.println(time);
+
+            return time;
+        }
+    }
 
     public String[] POSTag(String[] tokens, DoccatModel doccatModel) throws IOException{
 
