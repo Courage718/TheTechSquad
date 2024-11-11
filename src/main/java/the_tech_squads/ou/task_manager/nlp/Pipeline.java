@@ -102,6 +102,26 @@ public class Pipeline {
         }
     }
 
+    public String spansToString(List<Span> spans, String[] tokens) {
+        StringBuilder result = new StringBuilder();
+        for (Span span : spans) {
+            for (int i = span.getStart(); i < span.getEnd(); i++) {
+                result.append(tokens[i]).append(" ");
+            }
+        }
+        return result.toString().trim();
+    }
+
+    public String timeAsString(List<Span> timeSpans, String[] tokens) {
+        StringBuilder timeBuilder = new StringBuilder();
+        for (Span span : timeSpans) {
+            for (int i = span.getStart(); i < span.getEnd(); i++) {
+                timeBuilder.append(tokens[i]).append(" ");
+            }
+        }
+        return timeBuilder.toString().trim();
+    }
+
     public String[] POSTag(String[] tokens, DoccatModel doccatModel) throws IOException{
 
         try(InputStream model = new FileInputStream("en-pos-maxent.bin")) {
@@ -129,7 +149,7 @@ public class Pipeline {
 
     public void trainDoccatModel() throws IOException{
 
-        InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File(/*include filename for model file*/));
+        InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File("task-categorizer.txt"));
         ObjectStream<String> lineStream = new PlainTextByLineStream(inputStreamFactory, StandardCharsets.UTF_8);
         ObjectStream<DocumentSample> sample = new DocumentSampleStream(lineStream);
 

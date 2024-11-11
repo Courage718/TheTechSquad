@@ -1,11 +1,13 @@
 package the_tech_squads.ou.task_manager.nlp;
 
 import opennlp.tools.doccat.DoccatModel;
+import opennlp.tools.util.Span;
 import the_tech_squads.ou.task_manager.controller.TaskController;
 import the_tech_squads.ou.task_manager.model.Task;
 import the_tech_squads.ou.task_manager.service.TaskService;
 
 import java.io.IOException;
+import java.util.List;
 
 public class nlpMain {
     String userInput;// input string coming from web
@@ -21,8 +23,10 @@ public class nlpMain {
 
     public void runNLP() throws IOException{
 
+        /*
         TaskController controller = new TaskController();
         String userInput = controller.saveTask();
+         */
 
         //determines whether we want a task or a reminder; will determine whether we want to place something in
         //the calendar database or send it to the quartz scheduler to be triggered regularly as a reminder
@@ -39,8 +43,16 @@ public class nlpMain {
             String[] tokens = pipeline.tokenize(sentence);
 
             //processing for date detection
+            List<Span> dateSpan = pipeline.dateRecognition(tokens);
+            String dateString = pipeline.spansToString(dateSpan, tokens);
 
-            
+            List<Span> timeSpan = pipeline.timeRecognition(tokens);
+            String timeString = pipeline.spansToString(timeSpan, tokens);
+
+
+            //test statements
+            System.out.println(dateString);
+            System.out.println(timeString);
 
             //processing for categorization
             String[] POStags = pipeline.POSTag(tokens, pipeline.doccatModel);
@@ -56,15 +68,17 @@ public class nlpMain {
             }
             else if ("task".equals(category)){
 
+                /*
                 //adds task to task database
                 Task task = new Task();
 
-                task.setName(/*task name*/);
-                task.setDate(/*task date*/);
-                task.setPriority(/*task priority*/);
+                task.setName();
+                task.setDate();
+                task.setPriority();
 
                 TaskService taskService = new TaskService();
                 taskService.save(task);
+                 */
 
             }
 

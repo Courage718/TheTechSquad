@@ -1,0 +1,40 @@
+task	Schedule a meeting with John for next Monday.
+task	Add "finish project report" to my tasks for Friday.
+task	I need to work on the budget plan tomorrow.
+task	Can you set up a task for reviewing code on Wednesday?
+task	Schedule my dentist appointment for next Thursday.
+task	Add a task to follow up with clients next week.
+task	Plan a meeting with the team on the 1st of next month.
+task	I want to start working on the presentation next Monday.
+task	Set up a task to prepare financial statements by month-end.
+task	Schedule an appointment with HR for next Friday.
+task	Block time for research on the upcoming project tomorrow.
+task	Add "team brainstorming session" to my calendar for Friday.
+task	I want to start working on the marketing report next week.
+task	Schedule a task to call the supplier on Wednesday.
+task	Add a task to finalize the contract with the vendor.
+task	Please set up a task for creating the new website content.
+task	Add "weekly team sync" to my tasks for Mondays at 10 AM.
+task	I need to work on the quarterly review presentation.
+task	Schedule a task to compile sales data for Friday.
+task	Set up time to check in with my manager next week.
+reminder	Remind me to drink water every hour.
+reminder	Send me a reminder to call Mom on Sunday.
+reminder	Remind me to pay the bills on the first of each month.
+reminder	Can you remind me to take my medication every morning?
+reminder	Set a reminder for me to exercise tomorrow.
+reminder	Please remind me to check my emails at 9 AM daily.
+reminder	Remind me about the team meeting tomorrow at 10 AM.
+reminder	Can you set a reminder for laundry on Saturday?
+reminder	I need a reminder to pick up groceries on Friday.
+reminder	Remind me to submit the monthly report on the last day of the month.
+reminder	Remind me to review my weekly goals every Monday.
+reminder	Please remind me to take a break every two hours.
+reminder	Remind me about John's birthday next Wednesday.
+reminder	I need a reminder to call the bank on Friday.
+reminder	Set a reminder for the quarterly budget review next month.
+reminder	Remind me to water the plants every Sunday morning.
+reminder	Please remind me to walk the dog tonight at 7 PM.
+reminder	Set a reminder for the team lunch on Friday.
+reminder	Can you remind me to stretch every hour?
+reminder	Remind me to book a doctor’s appointment next week.
