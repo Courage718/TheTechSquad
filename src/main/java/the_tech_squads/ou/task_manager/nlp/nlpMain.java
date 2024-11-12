@@ -8,6 +8,7 @@ import the_tech_squads.ou.task_manager.service.TaskService;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 public class nlpMain {
     String userInput;// input string coming from web
@@ -21,7 +22,7 @@ public class nlpMain {
         return processedTask;
     }
 
-    public void runNLP() throws IOException{
+    public static void main(String[] args) throws IOException{
 
         /*
         TaskController controller = new TaskController();
@@ -30,7 +31,12 @@ public class nlpMain {
 
         //determines whether we want a task or a reminder; will determine whether we want to place something in
         //the calendar database or send it to the quartz scheduler to be triggered regularly as a reminder
-        Pipeline pipeline = new Pipeline(userInput);
+
+        //temp scanner object for testing
+
+        Scanner scanner = new Scanner(System.in);
+        String userinput = scanner.nextLine();
+        Pipeline pipeline = new Pipeline(userinput);
 
         pipeline.trainDoccatModel();
 
@@ -40,21 +46,31 @@ public class nlpMain {
 
         for (String sentence : sentences) {
 
+            //tokenize
             String[] tokens = pipeline.tokenize(sentence);
-
+            System.out.println("\ntokens (the user's input broken down into an array of words after removing capital letters etc.):\n");
+            for (int i = 0; i < tokens.length; i++) {
+                System.out.print("["+tokens[i]+"],     ");
+            }
+            System.out.println("\n");
             //processing for date detection
-            List<Span> dateSpan = pipeline.dateRecognition(tokens);
-            String dateString = pipeline.spansToString(dateSpan, tokens);
+            Span[] dateSpan = pipeline.dateRecognition(tokens);
+            System.out.println("Date Spans(list of index ranges from the token array at which there are dates):\n");
+            pipeline.spansToString(dateSpan);
 
-            List<Span> timeSpan = pipeline.timeRecognition(tokens);
-            String timeString = pipeline.spansToString(timeSpan, tokens);
+            String formattedDate = pipeline.dateFormatting(dateSpan, tokens);
+            System.out.println("The formatted date:   " + formattedDate);
 
+            /*
+            Span[] timeSpan = pipeline.timeRecognition(tokens);
+            System.out.println(timeSpan);
 
-            //test statements
-            System.out.println(dateString);
-            System.out.println(timeString);
+            pipeline.spansToString(timeSpan);
+            */
 
-            //processing for categorization
+            //place star here/*
+
+            //PROCESSING FOR CATEGORIZATION AND OUTPUT STATEMENT
             String[] POStags = pipeline.POSTag(tokens, pipeline.doccatModel);
 
             String[] lemmatizedTokens = pipeline.lemmatizeTokens(tokens, POStags);
@@ -68,26 +84,27 @@ public class nlpMain {
             }
             else if ("task".equals(category)){
 
-                /*
+
                 //adds task to task database
-                Task task = new Task();
+                //Task task = new Task();
 
-                task.setName();
-                task.setDate();
-                task.setPriority();
+                //task.setName();
+                //task.setDate();
+                //task.setPriority();
 
-                TaskService taskService = new TaskService();
-                taskService.save(task);
-                 */
+                //TaskService taskService = new TaskService();
+                //taskService.save(task);
+
 
             }
 
             //Build output statement for the user; gives the user confirmation of the task they set
             outputPrefix = pipeline.prefix.get(category);
 
+            System.out.println("\nOutput statement to the user describing which type of action was taken:\n");
+            System.out.println(outputPrefix);
 
-
-
+            //place star here*/
 
         }
 

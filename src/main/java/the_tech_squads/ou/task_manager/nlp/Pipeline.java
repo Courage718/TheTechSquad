@@ -16,6 +16,9 @@ import opennlp.tools.util.model.ModelUtil;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -24,8 +27,6 @@ import java.util.Map;
 public class Pipeline {
 
     public String userInput;
-    public String taskName;
-    public String taskTime;
     public DoccatModel doccatModel;
 
 
@@ -39,8 +40,8 @@ public class Pipeline {
         this.userInput = UserInput;
 
         {
-            prefix.put("reminder","Reminder to ");
-            prefix.put("task","Scheduled task to ");
+            prefix.put("reminder","Set a reminder.");
+            prefix.put("task","Scheduled a task.");
 
         }
 
@@ -48,7 +49,7 @@ public class Pipeline {
 
     public String[] breakSentences() throws IOException {
 
-        try (InputStream model = new FileInputStream("en-sent.bin")){
+        try (InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-sent.bin")){
 
             SentenceDetectorME sentenceDetector = new SentenceDetectorME(new SentenceModel(model));
 
@@ -61,7 +62,7 @@ public class Pipeline {
 
     public String[] tokenize(String sentence) throws IOException{
 
-        try(InputStream model = new FileInputStream("en-token.bin")) {
+        try(InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-token.bin")) {
 
             TokenizerME tokenizer = new TokenizerME(new TokenizerModel(model));
 
@@ -72,59 +73,90 @@ public class Pipeline {
         }
     }
 
-    public List<Span> dateRecognition(String[] tokens) throws IOException{
+    public Span[] dateRecognition(String[] tokens) throws IOException{
 
-        try(InputStream model = new FileInputStream("en-ner-date.bin")) {
+        try(InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-ner-date.bin")) {
 
             NameFinderME nameFinder = new NameFinderME(new TokenNameFinderModel(model));
 
-            List<Span> date = Arrays.asList(nameFinder.find(tokens));
-
-            //test statements
-            System.out.println(date);
+            Span date[] = nameFinder.find(tokens);
 
             return date;
         }
     }
 
-    public List<Span> timeRecognition(String[] tokens) throws IOException{
+    private String removeOrdinalSuffixes(String dateString) {
 
-        try(InputStream model = new FileInputStream("en-ner-time.bin")) {
+        return dateString.replaceAll("\\b(\\d+)(st|nd|rd|th)\\b", "$1");
 
+    }
+
+    public String dateFormatting(Span[] dateSpan, String[] tokens){
+
+        if (dateSpan.length == 0){
+            System.out.println("The spans array is empty, no dates were detected");
+            return null;
+        }
+
+        StringBuilder dateString = new StringBuilder();
+
+        for (Span span : dateSpan) {
+            for (int i = span.getStart(); i < span.getEnd()+1; i++) {
+                dateString.append(tokens[i]).append(" ");
+            }
+        }
+
+        String appendedDateString = removeOrdinalSuffixes(dateString.toString().trim());
+        System.out.println("\nAppended date string to be sent to date parser:\n" + appendedDateString);
+
+        DateTimeFormatter[] formatters = {
+                DateTimeFormatter.ofPattern("MMMM d, yyyy"),
+                DateTimeFormatter.ofPattern("MMMM d yyyy"),
+                DateTimeFormatter.ofPattern("MMMM d"),
+                //add more date formats
+        };
+
+        for (DateTimeFormatter formatter : formatters) {
+            try {
+                LocalDate parsedDate = LocalDate.parse(appendedDateString, formatter);
+                return parsedDate.format(DateTimeFormatter.ISO_LOCAL_DATE); // Format as YYYY-MM-DD
+            }
+            catch (DateTimeParseException e) {
+                System.out.println("Date format not recognized, trying next format");
+            }
+        }
+
+        return null;
+
+    }
+
+    public Span[] timeRecog(String[] tokens) throws IOException{
+
+        try(InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-ner-time.bin")) {
             NameFinderME nameFinder = new NameFinderME(new TokenNameFinderModel(model));
 
-            List<Span> time = Arrays.asList(nameFinder.find(tokens));
-
-            //test statements
-            System.out.println(time);
+            Span[] time = nameFinder.find(tokens);
 
             return time;
         }
     }
 
-    public String spansToString(List<Span> spans, String[] tokens) {
-        StringBuilder result = new StringBuilder();
-        for (Span span : spans) {
-            for (int i = span.getStart(); i < span.getEnd(); i++) {
-                result.append(tokens[i]).append(" ");
-            }
-        }
-        return result.toString().trim();
-    }
+    public void spansToString(Span[] timeSpans) {
 
-    public String timeAsString(List<Span> timeSpans, String[] tokens) {
-        StringBuilder timeBuilder = new StringBuilder();
+        System.out.println("Spans: [");
         for (Span span : timeSpans) {
             for (int i = span.getStart(); i < span.getEnd(); i++) {
-                timeBuilder.append(tokens[i]).append(" ");
+                System.out.print(span.toString() + " ");
             }
         }
-        return timeBuilder.toString().trim();
+        System.out.print("]\n\n");
     }
+
+    //place star here/*
 
     public String[] POSTag(String[] tokens, DoccatModel doccatModel) throws IOException{
 
-        try(InputStream model = new FileInputStream("en-pos-maxent.bin")) {
+        try(InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-pos-maxent.bin")) {
 
             POSTaggerME POSTagger = new POSTaggerME(new POSModel(model));
 
@@ -136,7 +168,7 @@ public class Pipeline {
 
     public String[] lemmatizeTokens(String[] tokens, String[] POSTags) throws IOException{
 
-        try(InputStream model = new FileInputStream("en-lemmatizer.bin")) {
+        try(InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-lemmatizer.bin")) {
 
             LemmatizerME lemmatizer = new LemmatizerME(new LemmatizerModel(model));
 
@@ -147,9 +179,11 @@ public class Pipeline {
         }
     }
 
+
+
     public void trainDoccatModel() throws IOException{
 
-        InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File("task-categorizer.txt"));
+        InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/task-categorizer.txt"));
         ObjectStream<String> lineStream = new PlainTextByLineStream(inputStreamFactory, StandardCharsets.UTF_8);
         ObjectStream<DocumentSample> sample = new DocumentSampleStream(lineStream);
 
@@ -173,5 +207,8 @@ public class Pipeline {
 
         return category;
     }
+
+    //place star here*/
+
 
 }

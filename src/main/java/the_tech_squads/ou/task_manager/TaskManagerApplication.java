@@ -8,10 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TaskManagerApplication {
 
+	/*
 	public static void main(String[] args) throws SchedulerException {
 		SpringApplication.run(TaskManagerApplication.class, args);
 		scheduleMyTask();
 	}
+	*/
 
 	public static void scheduleMyTask() throws SchedulerException {
 		Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
