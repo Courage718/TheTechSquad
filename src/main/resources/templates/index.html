@@ -1,136 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Task Manager</title>
-  <link rel="stylesheet" href="css/front_styling.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar - TechSquad Task Manager</title>
+  <link rel="stylesheet" href="/css/login_page_styling.css">
   <style>
-    /* Calendar Popup Styles */
-    .calendar-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-    }
-
     .calendar-container {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
     }
-
     .calendar-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
+      width: 100%;
+      max-width: 500px;
     }
-
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 5px;
+      max-width: 500px;
     }
-
-    .calendar-day, .day-name {
-      text-align: center;
+    .calendar-day, .calendar-grid .day-name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px;
       border: 1px solid #ddd;
       cursor: pointer;
     }
-
-    .day-name {
+    .calendar-grid .day-name {
       font-weight: bold;
     }
-
     .calendar-day.reminder {
       background-color: yellow;
     }
-
-    .calendar-overlay-close {
-      cursor: pointer;
-      color: #fff;
-      font-size: 24px;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-    }
   </style>
 </head>
+
 <body>
+
 <header class="navbar">
   <h1>TechSquad Task Manager</h1>
   <nav>
     <ul>
-      <li><a href="/">Home</a></li>
+      <li><a href="./index.html">Home</a></li>
       <li><a href="#">About</a></li>
-      <li><a href="/task">Task Manager</a></li>
+      <li><a href="./userInputTask.html">Task Manager</a></li>
       <li><a href="#">Contact</a></li>
-      <li><a href="#" onclick="openCalendar()">Calendar</a></li>
     </ul>
   </nav>
-  <a href="/login"><button class="get-started-btn">Log In</button></a>
+  <a href="./login_page.html"><button class="get-started-btn">Log In</button></a>
 </header>
 
 <main>
-  <section class="beginning-intro">
-    <div>
-      <h2 class="main" id="intro">Welcome to TechSquad Task Manager!</h2>
-      <p class="title">A smart way to organize your tasks</p>
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <button onclick="changeMonth(-1)">&lt;</button>
+      <h2 id="monthYearLabel"></h2>
+      <button onclick="changeMonth(1)">&gt;</button>
     </div>
-  </section>
-
-  <!-- Calendar Popup -->
-  <div class="calendar-overlay" id="calendarOverlay">
-    <div class="calendar-container">
-      <span class="calendar-overlay-close" onclick="closeCalendar()">&times;</span>
-      <div class="calendar-header">
-        <button onclick="changeMonth(-1)">&lt;</button>
-        <h2 id="monthYearLabel"></h2>
-        <button onclick="changeMonth(1)">&gt;</button>
-      </div>
-      <div class="calendar-grid" id="calendarGrid">
-        <div class="day-name">Sun</div>
-        <div class="day-name">Mon</div>
-        <div class="day-name">Tue</div>
-        <div class="day-name">Wed</div>
-        <div class="day-name">Thu</div>
-        <div class="day-name">Fri</div>
-        <div class="day-name">Sat</div>
-      </div>
+    <div class="calendar-grid" id="calendarGrid">
+      <div class="day-name">Sun</div>
+      <div class="day-name">Mon</div>
+      <div class="day-name">Tue</div>
+      <div class="day-name">Wed</div>
+      <div class="day-name">Thu</div>
+      <div class="day-name">Fri</div>
+      <div class="day-name">Sat</div>
     </div>
   </div>
-
-  <!-- Main Content -->
-  <section class="app-features">
-    <div class="features-intro">
-      <h2>Smart Task Manager</h2>
-      <p>Insert what our task manager can do</p>
-    </div>
-    <div class="feature-detail">
-      <h2>Scheduling made simpler and more effective</h2>
-      <p>What are its features and how it benefits the user</p>
-    </div>
-    <div class="more-detail">
-      <h2>Designed to prioritize you</h2>
-      <p>Some Information</p>
-    </div>
-  </section>
-
-  <section class="regis">
-    <div class="info">
-      <h3>Start prioritizing you</h3>
-      <p>Ready to get started with organizing your life? Then let’s get started.</p>
-      <a href="/login"><button class="get-started-btn">Get Started</button></a>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -139,16 +81,14 @@
       <h3>TechSquad Task Manager</h3>
       <p>Smart Task Manager</p>
     </div>
-
     <div class="links-col">
       <h4>Useful Links</h4>
-      <a href="/">Home</a>
+      <a href="./index.html">Home</a>
       <a href="#">About</a>
-      <a href="/task">Task Manager</a>
+      <a href="#">Task Manager</a>
       <a href="#">Contact</a>
-      <a href="/login">Log In</a>
+      <a href="./login_page.html">Log In</a>
     </div>
-
     <div class="git-link-col">
       <h4>Useful Links</h4>
       <a href="#">Github</a>
@@ -160,17 +100,7 @@
 <script>
   let currentMonth = new Date().getMonth();
   let currentYear = new Date().getFullYear();
-  const reminders = {};
-
-  function openCalendar() {
-    document.getElementById("calendarOverlay").style.display = "flex";
-    updateCalendar();
-    checkTodayReminder();
-  }
-
-  function closeCalendar() {
-    document.getElementById("calendarOverlay").style.display = "none";
-  }
+  const reminders = {};  // Store reminders as { "YYYY-MM-DD": "Reminder text" }
 
   function updateCalendar() {
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -197,6 +127,7 @@
       }
       dayElement.textContent = day;
       dayElement.onclick = () => setReminder(dateKey);
+
       calendarGrid.appendChild(dayElement);
     }
   }
@@ -210,8 +141,8 @@
       } else {
         delete reminders[dateKey];
       }
-      updateCalendar();
     }
+    updateCalendar();
   }
 
   function checkTodayReminder() {
@@ -234,7 +165,10 @@
     updateCalendar();
   }
 
-  document.addEventListener('DOMContentLoaded', updateCalendar);
+  document.addEventListener('DOMContentLoaded', () => {
+    updateCalendar();
+    checkTodayReminder();
+  });
 </script>
 
 </body>
