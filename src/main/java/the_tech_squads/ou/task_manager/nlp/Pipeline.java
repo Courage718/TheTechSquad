@@ -52,6 +52,7 @@ public class Pipeline {
         try (InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-sent.bin")){
 
             SentenceDetectorME sentenceDetector = new SentenceDetectorME(new SentenceModel(model));
+            model.close();
 
             String[] sentences = sentenceDetector.sentDetect(userInput);
 
@@ -65,6 +66,7 @@ public class Pipeline {
         try(InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-token.bin")) {
 
             TokenizerME tokenizer = new TokenizerME(new TokenizerModel(model));
+            model.close();
 
             String[] tokens = tokenizer.tokenize(sentence);
 
@@ -78,6 +80,7 @@ public class Pipeline {
         try(InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-ner-date.bin")) {
 
             NameFinderME nameFinder = new NameFinderME(new TokenNameFinderModel(model));
+            model.close();
 
             Span date[] = nameFinder.find(tokens);
 
@@ -134,6 +137,7 @@ public class Pipeline {
 
         try(InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-ner-time.bin")) {
             NameFinderME nameFinder = new NameFinderME(new TokenNameFinderModel(model));
+            model.close();
 
             Span[] time = nameFinder.find(tokens);
 
@@ -159,6 +163,7 @@ public class Pipeline {
         try(InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-pos-maxent.bin")) {
 
             POSTaggerME POSTagger = new POSTaggerME(new POSModel(model));
+            model.close();
 
             String[] POSTags = POSTagger.tag(tokens);
 
@@ -171,6 +176,7 @@ public class Pipeline {
         try(InputStream model = new FileInputStream("C:/Users/ggrae/OneDrive/Documents/GitHub/TheTechSquad/src/main/resources/models/en-lemmatizer.bin")) {
 
             LemmatizerME lemmatizer = new LemmatizerME(new LemmatizerModel(model));
+            model.close();
 
             String[] lemmatizedTokens = lemmatizer.lemmatize(tokens, POSTags);
 
