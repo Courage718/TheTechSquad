@@ -1,3 +1,4 @@
+/*
 package the_tech_squads.ou.task_manager.nlp;
 
 import opennlp.tools.doccat.*;
@@ -129,7 +130,9 @@ public class Pipeline {
 
     public void trainDoccatModel() throws IOException{
 
-        InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File(/*include filename for model file*/));
+        InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File(*/
+/*include filename for model file*//*
+));
         ObjectStream<String> lineStream = new PlainTextByLineStream(inputStreamFactory, StandardCharsets.UTF_8);
         ObjectStream<DocumentSample> sample = new DocumentSampleStream(lineStream);
 
@@ -154,4 +157,4 @@ public class Pipeline {
         return category;
     }
 
-}
+}*/

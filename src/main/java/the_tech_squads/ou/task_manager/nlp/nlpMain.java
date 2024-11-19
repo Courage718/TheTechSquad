@@ -1,4 +1,4 @@
-package the_tech_squads.ou.task_manager.nlp;
+/*package the_tech_squads.ou.task_manager.nlp;
 
 import opennlp.tools.doccat.DoccatModel;
 import the_tech_squads.ou.task_manager.controller.TaskController;
@@ -59,9 +59,9 @@ public class nlpMain {
                 //adds task to task database
                 Task task = new Task();
 
-                task.setName(/*task name*/);
-                task.setDate(/*task date*/);
-                task.setPriority(/*task priority*/);
+                task.setName(*//*task name*//*);
+                task.setDate(*//*task date*//*);
+                task.setPriority(*//*task priority*//*);
 
                 TaskService taskService = new TaskService();
                 taskService.save(task);
@@ -79,5 +79,5 @@ public class nlpMain {
 
     }
 
-}
+}*/
 

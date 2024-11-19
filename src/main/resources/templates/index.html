@@ -4,6 +4,65 @@
   <meta charset="UTF-8" />
   <title>Task Manager</title>
   <link rel="stylesheet" href="css/front_styling.css" />
+  <style>
+    /* General Styling */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+      background-color: #333;
+    }
+
+    .navbar ul li {
+      display: inline;
+    }
+
+    .navbar ul li a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .navbar ul li a:hover {
+      background-color: #575757;
+    }
+
+    .beginning-intro {
+      text-align: center;
+      padding: 50px;
+      background-color: #f4f4f4;
+    }
+
+    .app-features, .regis {
+      padding: 20px;
+    }
+
+    .get-started-btn {
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #fff;
+      background-color: #ffcb05;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .get-started-btn:hover {
+      background-color: #ffc107;
+    }
+  </style>
 </head>
 <body>
 <header class="navbar">
@@ -14,7 +73,7 @@
       <li><a href="#">About</a></li>
       <li><a href="/task">Task Manager</a></li>
       <li><a href="#">Contact</a></li>
-      <li><a href="#" onclick="openCalendar()">Calendar</a></li>
+      <li><a href="calendar.html">Calendar</a></li> <!-- Link to your separate calendar page -->
     </ul>
   </nav>
   <a href="/login"><button class="get-started-btn">Log In</button></a>
@@ -28,6 +87,7 @@
     </div>
   </section>
 
+  <!-- Main Content -->
   <section class="app-features">
     <div class="features-intro">
       <h2>Smart Task Manager</h2>
@@ -75,11 +135,5 @@
   </div>
   <p class="copy-right">&copy;2024 The TechSquad. All rights reserved.</p>
 </footer>
-
-<script>
-  function openCalendar() {
-    alert("To open the Calendar, please run the CalendarApp Java application separately.");
-  }
-</script>
 </body>
 </html>
