@@ -16,6 +16,7 @@ public class Task {
     private String description;
     private LocalDate date;
     private int priority;
+    private long userId;
 
     public Long getId() {
         return id;
@@ -55,5 +56,13 @@ public class Task {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 }
