@@ -25,11 +25,8 @@ public class TaskController {
 //        System.out.println();
 //        return "bye";// This refers to html page
 //    }
-    @PostMapping("/task")
-    public Task saveTask(@RequestBody Task task) {
-        return taskService.save(task);
 
-    }
+
     @PostMapping(value = "/task", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String submitTask(@ModelAttribute Task task) {
         taskService.save(task);
