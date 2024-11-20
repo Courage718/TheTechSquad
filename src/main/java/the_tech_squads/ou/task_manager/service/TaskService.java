@@ -24,9 +24,12 @@ public class TaskService {
     public Task save(Task task) {
         return taskRepository.save(task);
     }
-
-
-
-
-
+//TODO
+public List<Task> getTasksByUserId(Long userId) {
+    return taskRepository.findByUserId(userId);
 }
+    }
+
+
+
+

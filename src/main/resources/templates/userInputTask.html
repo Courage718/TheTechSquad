@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>user input task</title>
@@ -11,7 +11,7 @@
     <h1>TechSquad Task Manager</h1>
     <nav>
         <ul>
-            <li><a href="./index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="#">About </a></li>
             <li><a href="#">Task Manager</a></li>
             <li><a href="#">Contact</a></li>
@@ -58,7 +58,33 @@
         </div>
 
         <div class="task-display">
-            <h2>Tasks</h2>
+
+
+            <!--table displaying tasks by user id-->
+            <div th:if="${tasks.size() > 0}">
+                <table border="1">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="task : ${tasks}">
+                        <td th:text="${task.name}"></td>
+                        <td th:text="${task.description}"></td>
+                        <td th:text="${task.date}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div th:if="${tasks.size() == 0}">
+                <p>No tasks found for this user.</p>
+            </div>
+
+
+
             <div id="taskContainer"></div>
         </div>
 
@@ -75,11 +101,11 @@
 
         <div class="links-col">
             <h4>Useful Links</h4>
-            <a href="./index.html">Home</a>
+            <a href="/">Home</a>
             <a href="#">About</a>
-            <a href="#">Task Manager</a>
+            <a href="/task">Task Manager</a>
             <a href="#">Contact</a>
-            <a href="./login_page.html">Log In</a>
+            <a href="/login">Log In</a>
         </div>
 
         <div class="git-link-col">
