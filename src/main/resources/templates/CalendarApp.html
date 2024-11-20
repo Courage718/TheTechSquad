@@ -1,45 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calendar - TechSquad Task Manager</title>
+  <title>Document</title>
   <link rel="stylesheet" href="/css/login_page_styling.css">
-  <style>
-    .calendar-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 20px;
-    }
-    .calendar-header {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 500px;
-    }
-    .calendar-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
-      max-width: 500px;
-    }
-    .calendar-day, .calendar-grid .day-name {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px;
-      border: 1px solid #ddd;
-      cursor: pointer;
-    }
-    .calendar-grid .day-name {
-      font-weight: bold;
-    }
-    .calendar-day.reminder {
-      background-color: yellow;
-    }
-  </style>
 </head>
+
 
 <body>
 
@@ -50,27 +17,30 @@
       <li><a href="./index.html">Home</a></li>
       <li><a href="#">About</a></li>
       <li><a href="./userInputTask.html">Task Manager</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="./contact.html">Contact</a></li>
     </ul>
   </nav>
   <a href="./login_page.html"><button class="get-started-btn">Log In</button></a>
 </header>
 
 <main>
-  <div class="calendar-container">
-    <div class="calendar-header">
-      <button onclick="changeMonth(-1)">&lt;</button>
-      <h2 id="monthYearLabel"></h2>
-      <button onclick="changeMonth(1)">&gt;</button>
-    </div>
-    <div class="calendar-grid" id="calendarGrid">
-      <div class="day-name">Sun</div>
-      <div class="day-name">Mon</div>
-      <div class="day-name">Tue</div>
-      <div class="day-name">Wed</div>
-      <div class="day-name">Thu</div>
-      <div class="day-name">Fri</div>
-      <div class="day-name">Sat</div>
+  <div class="calendar-section">
+    <h2>Calendar</h2>
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <button onclick="changeMonth(-1)">&lt;</button>
+        <h2 id="monthYearLabel"></h2>
+        <button onclick="changeMonth(1)">&gt;</button>
+      </div>
+      <div class="calendar-grid" id="calendarGrid">
+        <div class="day-name">Sun</div>
+        <div class="day-name">Mon</div>
+        <div class="day-name">Tue</div>
+        <div class="day-name">Wed</div>
+        <div class="day-name">Thu</div>
+        <div class="day-name">Fri</div>
+        <div class="day-name">Sat</div>
+      </div>
     </div>
   </div>
 </main>
@@ -81,16 +51,18 @@
       <h3>TechSquad Task Manager</h3>
       <p>Smart Task Manager</p>
     </div>
+
     <div class="links-col">
       <h4>Useful Links</h4>
       <a href="./index.html">Home</a>
       <a href="#">About</a>
-      <a href="#">Task Manager</a>
-      <a href="#">Contact</a>
+      <a href="./userInputTask.html">Task Manager</a>
+      <a href="./Contactpage.html">Contact</a>
       <a href="./login_page.html">Log In</a>
     </div>
+
     <div class="git-link-col">
-      <h4>Useful Links</h4>
+      <h4>Find Us</h4>
       <a href="#">Github</a>
     </div>
   </div>
@@ -170,6 +142,6 @@
     checkTodayReminder();
   });
 </script>
-
 </body>
 </html>
+

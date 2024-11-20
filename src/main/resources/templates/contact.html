@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/login_page_styling.css">
+
+<style>
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .contact-header {
+      margin-bottom: 20px;
+    }
+    .team-member {
+      margin: 10px 0;
+    }
+    .contact-form {
+      margin-top: 20px;
+      text-align: left;
+    }
+    .contact-form label,
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .contact-form button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <h1>TechSquad Task Manager</h1>
+  <nav>
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="./userInputTask.html">Task Manager</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./CalendarApp.html">Calendar</a></li>
+    </ul>
+  </nav>
+  <a href="./login_page.html"><button class="get-started-btn">Log In</button></a>
+</header>
+
+<main>
+  <div class="contact-container">
+    <div class="contact-header">
+      <h2>Contact Our Team</h2>
+      <p>Feel free to reach out to any of our team members or use the form below to send us a message.</p>
+    </div>
+
+    <div class="team-members">
+      <div class="team-member">
+        <h3>Giovanni Santos</h3>
+        <p>Email: <a href="mailto:gsantos@oakland.edu">gsantos@oakland.edu</a></p>
+      </div>
+      <div class="team-member">
+        <h3>Irina Vertiagina</h3>
+        <p>Email: <a href="mailto:ivertiagina@oakland.edu">ivertiagina@oakland.edu</a></p>
+      </div>
+      <div class="team-member">
+        <h3>Garrett Graessle</h3>
+        <p>Email: <a href="mailto:ggraessle9867@gmail.com">ggraessle9867@gmail.com</a></p>
+      </div>
+      <div class="team-member">
+        <h3>Sayman Zaya</h3>
+        <p>Email: <a href="mailto:Saymanzaya@oakland.edu">Saymanzaya@oakland.edu</a></p>
+      </div>
+      <div class="team-member">
+        <h3>Simon Chen</h3>
+        <p>Email: <a href="mailto:schen7812@gmail.com">schen7812@gmail.com</a></p>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Contact Form</h3>
+      <form th:action="@{/submit-contact}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="cols">
+    <div class="about-col">
+      <h3>TechSquad Task Manager</h3>
+      <p>Smart Task Manager</p>
+    </div>
+    <div class="links-col">
+      <h4>Useful Links</h4>
+      <a href="./index.html">Home</a>
+      <a href="#">About</a>
+      <a href="./userInputTask.html">Task Manager</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./login_page.html">Log In</a>
+    </div>
+    <div class="git-link-col">
+      <h4>Find Us</h4>
+      <a href="#">Github</a>
+    </div>
+  </div>
+  <p class="copy-right">&copy;2024 The TechSquad. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
