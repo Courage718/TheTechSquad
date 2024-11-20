@@ -6,37 +6,160 @@
   <title>Document</title>
   <link rel="stylesheet" href="/css/login_page_styling.css">
 
-<style>
+  <style>
+    body {
+      background-color: black; /* Set the background color to black */
+      color: white; /* Set text color to white for better contrast */
+      font-family: Arial, sans-serif; /* Set a default font */
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: bold;
+      color: #FF5733; /* Add a bright color for headings to make them pop */
+    }
+
     .contact-container {
       max-width: 800px;
-      margin: 0 auto;
+      margin: 20px auto;
       padding: 20px;
       text-align: center;
+      background-color: #222; /* Dark background for container */
+      border-radius: 8px; /* Rounded corners */
     }
+
     .contact-header {
       margin-bottom: 20px;
     }
+
     .team-member {
-      margin: 10px 0;
+      margin: 15px 0;
     }
+
+    .team-member h3 {
+      color: #FF5733; /* Add a bright color for team member names */
+    }
+
     .contact-form {
-      margin-top: 20px;
+      margin-top: 30px;
       text-align: left;
     }
-    .contact-form label,
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1.1em;
+    }
+
     .contact-form input,
     .contact-form textarea {
       display: block;
       width: 100%;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      padding: 10px;
+      background-color: #444; /* Lighter dark background for input fields */
+      color: white;
+      border: 1px solid #555; /* Lighter border for input fields */
+      border-radius: 4px; /* Rounded corners for input fields */
+      font-size: 1em;
     }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #FF5733; /* Highlight input fields with a bright color on focus */
+    }
+
     .contact-form button {
-      padding: 10px 20px;
-      background-color: #333;
-      color: #fff;
+      padding: 15px 30px;
+      background-color: #FF5733; /* Bright button background */
+      color: white;
+      font-size: 1.2em;
       border: none;
+      border-radius: 4px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
+    .contact-form button:hover {
+      background-color: #C74024; /* Slightly darker shade on hover */
+    }
+
+    header, footer {
+      background-color: #222;
+      color: white;
+      padding: 15px 0;
+    }
+
+    header h1 {
+      margin: 0;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      font-size: 1.1em;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+      color: #FF5733;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+      color: #FF5733;
+    }
+
+    .cols {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .about-col, .links-col, .git-link-col {
+      flex: 1;
+      padding: 10px;
+      min-width: 200px;
+    }
+
+    .about-col h3,
+    .links-col h4,
+    .git-link-col h4 {
+      color: #FF5733;
+    }
+
+    .copy-right {
+      font-size: 0.9em;
+      margin-top: 20px;
+      color: #aaa;
+    }
+
   </style>
 </head>
 
@@ -82,7 +205,7 @@
       </div>
       <div class="team-member">
         <h3>Simon Chen</h3>
-        <p>Email: <a href="mailto:schen7812@gmail.com">schen4@oakland.edu</a></p>
+        <p>Email: <a href="mailto:schen4@oakland.edu">schen4@oakland.edu</a></p>
       </div>
     </div>
 
