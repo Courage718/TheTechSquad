@@ -33,7 +33,7 @@ public class TaskController {
     public String getTasksByUserId(@PathVariable long userId, Model model) {
         List<Task> tasks = taskService.getTasksByUserId(userId);
         model.addAttribute("tasks", tasks);
-        return "userInputTask";
+        return "task_list";
     }
 
 

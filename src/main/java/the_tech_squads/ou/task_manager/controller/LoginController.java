@@ -27,7 +27,7 @@ public class LoginController {
         // Call the service to check credentials
         if (userService.authenticate(email, password)) {
             // Successful login logic (e.g., redirect to dashboard)
-            return "db-test-page"; // Change this to your success page
+            return "redirect:/db-test-page";  // Change this to your success page
         } else {
             model.addAttribute("error", "Invalid email or password");
             return "bye"; // Return to login page with error

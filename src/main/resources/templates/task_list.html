@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My tasks</title>
+    <link rel="stylesheet" href="/css/userinput_styling.css">
+    <script src="./task.js" defer> </script>
+</head>
+<body>
+<header class="navbar">
+    <h1>TechSquad Task Manager</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About </a></li>
+            <li><a href="#">Task Manager</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+            <!--table displaying tasks by user id-->
+            <div th:if="${tasks.size() > 0}">
+                <table border="1">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="task : ${tasks}">
+                        <td th:text="${task.name}"></td>
+                        <td th:text="${task.description}"></td>
+                        <td th:text="${task.date}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div th:if="${tasks.size() == 0}">
+                <p>No tasks found for this user.</p>
+            </div>
+
+
+
+</body>
+</html>

@@ -14,5 +14,10 @@ public class WelcomeController {
         return "index";
     }
 
+    @GetMapping("/contact")
+    public String contact(){
+        return "contact";
+    }
+
 
 }
