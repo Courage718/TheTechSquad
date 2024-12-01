@@ -12,7 +12,12 @@ import java.util.Scanner;
 
 public class nlpMain {
     String userInput;// input string coming from web
-    String processedTask;//possible output
+    String processedTask;//This will be the name of the task that appears on the website
+    String date;//this will be used to place the task in a proper location
+    String time;
+    /*same purpose as the date; however if the calendar does not organize things by time (I.E. it only
+    organizes by date), this should be included alongside the processedTask so that the user remembers what time
+    they included with the task*/
 
     public void setUserInput(String userInput) {
         this.userInput = userInput;

@@ -82,7 +82,7 @@ public class Pipeline {
             NameFinderME nameFinder = new NameFinderME(new TokenNameFinderModel(model));
             model.close();
 
-            Span date[] = nameFinder.find(tokens);
+            Span[] date = nameFinder.find(tokens);
 
             return date;
         }
@@ -90,7 +90,7 @@ public class Pipeline {
 
     private String removeOrdinalSuffixes(String dateString) {
 
-        return dateString.replaceAll("\\b(\\d+)(st|nd|rd|th)\\b", "$1");
+        return dateString.replaceAll("\\b(\\d+)(st|nd|rd|th)\\b", "");
 
     }
 
