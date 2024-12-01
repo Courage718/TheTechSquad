@@ -31,4 +31,19 @@ public class UserService {
         User user = userRepository.findByEmail(email);
         return user != null && user.getPassword().equals(password); // Use hashed passwords in production
     }
+
+    public Long authenticateAndGetUserId(String email, String password) {
+        // Fetch user by email
+        User user = userRepository.findByEmail(email);
+
+        if (user != null && user.getPassword().equals(password)) {
+            // If the password matches, return the user ID
+            return user.getId();
+        }
+
+        // Return null if authentication fails
+        return null;
+    }
+
+
 }
