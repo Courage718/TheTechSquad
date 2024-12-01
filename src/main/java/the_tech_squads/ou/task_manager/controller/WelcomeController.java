@@ -1,4 +1,4 @@
-package the_tech_squads.ou.task_manager;
+package the_tech_squads.ou.task_manager.controller;
 
 
 import org.springframework.stereotype.Controller;
