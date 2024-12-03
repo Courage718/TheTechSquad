@@ -12,6 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/nlp")
+@CrossOrigin(origins = "*")
 public class nlpController {
 
     @PostMapping("/process")
