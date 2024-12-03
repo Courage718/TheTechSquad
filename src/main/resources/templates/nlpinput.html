@@ -4,115 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NLP Input</title>
+  <link rel="stylesheet" href="../static/css/nlp_styling.css">
+  <script src="./nlpInput.js" defer></script>
 </head>
+
 <body>
   <h1>Send Text for NLP</h1>
   <textarea id="inputText" rows="5" cols="50" placeholder="Type something here..."></textarea><br><br>
   <button id="sendButton">Send</button>
   <h2>Response:</h2>
   <div id="response"></div>
-
-
-<style>
-*{
-margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif, Tahoma;
-  /* set variables for colors */
-  --bg-primary: #a4bab7;
-  --bg-secondary: #334139;
-  --font-color-primary: #996888;
-  --font-color-secondary: #2c1320;
-  --backup-color: #334139;
-}
- 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9;
-  color: #333;
-  text-align: center;
-}
-
-h1 {
-  color: #334139;
-  margin-top: 20px;
-  font-size: 2rem;
-}
-
-textarea {
-  width: 80%;
-  height: 100px;
-  margin: 20px auto;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  resize: none;
-}
-
-button {
-  background-color: var(--font-color-primary);
-  color: var(--bg-primary);
-  padding: 5px 10px;
-  border: none;
-  font-size: medium;
-  cursor: pointer;
-  border-radius: 5px;
-  transform: background 0.3s ease;
-}
-
-button:hover {
-    background-color: var(--font-color-secondary);
-    color: var(--bg-primary);
-    cursor: pointer;
-}
-
-h2 {
-  color: #333;
-  font-size: 1.5rem;
-  margin-top: 30px;
-}
-
-#response {
-  margin: 20px auto;
-  width: 80%;
-  padding: 10px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
-  text-align: left;
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
-}
-
-</style>
-
-<script>
-    document.getElementById('sendButton').addEventListener('click', async () => {
-      const inputText = document.getElementById('inputText').value;
-
-      try {
-        const response = await fetch('http://localhost:8080/api/nlp/process', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text: inputText }),
-        });
-
-        const result = await response.json();
-        document.getElementById('response').innerHTML = `
-          <p><strong>Nouns:</strong> ${result.nouns.join(', ')}</p>
-          <p><strong>Verbs:</strong> ${result.verbs.join(', ')}</p>
-        `;
-      } catch (error) {
-        document.getElementById('response').innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
-      }
-    });
-</script>
 </body>
+
 </html>
