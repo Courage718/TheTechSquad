@@ -34,6 +34,7 @@ public class nlpMain {
 
     }
 
+    //rename method later to runNLP
     public static void main(String[] args) throws IOException{
 
         /*
@@ -89,26 +90,7 @@ public class nlpMain {
 
             String category = pipeline.detectCategory(pipeline.doccatModel, lemmatizedTokens);
 
-            if ("reminder".equals(category)){
 
-                //add code to trigger quartz scheduler
-
-            }
-            else if ("task".equals(category)){
-
-
-                //adds task to task database
-                //Task task = new Task();
-
-                //task.setName();
-                //task.setDate();
-                //task.setPriority();
-
-                //TaskService taskService = new TaskService();
-                //taskService.save(task);
-
-
-            }
 
             //Build output statement for the user; gives the user confirmation of the task they set
             outputPrefix = pipeline.prefix.get(category);
@@ -119,6 +101,14 @@ public class nlpMain {
             //place star here*/
 
         }
+
+        //adds task to task database
+
+        //task.setName(processedTask);
+        //task.setDate(date);
+
+        //TaskService taskService = new TaskService();
+        //taskService.save(task);
 
     }
 
