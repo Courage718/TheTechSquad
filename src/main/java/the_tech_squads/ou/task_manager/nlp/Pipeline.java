@@ -1,162 +1,162 @@
-package the_tech_squads.ou.task_manager.nlp;
+// package the_tech_squads.ou.task_manager.nlp;
 
-import opennlp.tools.doccat.*;
-import opennlp.tools.lemmatizer.LemmatizerME;
-import opennlp.tools.lemmatizer.LemmatizerModel;
-import opennlp.tools.namefind.NameFinderME;
-import opennlp.tools.namefind.TokenNameFinderModel;
-import opennlp.tools.postag.POSModel;
-import opennlp.tools.postag.POSTaggerME;
-import opennlp.tools.sentdetect.SentenceDetectorME;
-import opennlp.tools.sentdetect.SentenceModel;
-import opennlp.tools.tokenize.TokenizerME;
-import opennlp.tools.tokenize.TokenizerModel;
-import opennlp.tools.util.*;
-import opennlp.tools.util.model.ModelUtil;
+// import opennlp.tools.doccat.*;
+// import opennlp.tools.lemmatizer.LemmatizerME;
+// import opennlp.tools.lemmatizer.LemmatizerModel;
+// import opennlp.tools.namefind.NameFinderME;
+// import opennlp.tools.namefind.TokenNameFinderModel;
+// import opennlp.tools.postag.POSModel;
+// import opennlp.tools.postag.POSTaggerME;
+// import opennlp.tools.sentdetect.SentenceDetectorME;
+// import opennlp.tools.sentdetect.SentenceModel;
+// import opennlp.tools.tokenize.TokenizerME;
+// import opennlp.tools.tokenize.TokenizerModel;
+// import opennlp.tools.util.*;
+// import opennlp.tools.util.model.ModelUtil;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+// import java.io.*;
+// import java.nio.charset.StandardCharsets;
+// import java.util.Arrays;
+// import java.util.HashMap;
+// import java.util.List;
+// import java.util.Map;
 
-public class Pipeline {
+// public class Pipeline {
 
-   public String userInput;
-   public String taskName;
-   public String taskTime;
-   public DoccatModel doccatModel;
-
-
-   public Map<String, String> prefix = new HashMap<>();
+//    public String userInput;
+//    public String taskName;
+//    public String taskTime;
+//    public DoccatModel doccatModel;
 
 
+//    public Map<String, String> prefix = new HashMap<>();
 
 
-   public Pipeline (String UserInput){
-
-       this.userInput = UserInput;
-
-       {
-           prefix.put("reminder","Reminder to ");
-           prefix.put("task","Scheduled task to ");
-
-       }
-
-   }
-
-   public String[] breakSentences() throws IOException {
-
-       try (InputStream model = new FileInputStream("en-sent.bin")){
-
-           SentenceDetectorME sentenceDetector = new SentenceDetectorME(new SentenceModel(model));
-
-           String[] sentences = sentenceDetector.sentDetect(userInput);
-
-           return sentences;
-       }
-   }
 
 
-   public String[] tokenize(String sentence) throws IOException{
+//    public Pipeline (String UserInput){
 
-       try(InputStream model = new FileInputStream("en-token.bin")) {
+//        this.userInput = UserInput;
 
-           TokenizerME tokenizer = new TokenizerME(new TokenizerModel(model));
+//        {
+//            prefix.put("reminder","Reminder to ");
+//            prefix.put("task","Scheduled task to ");
 
-           String[] tokens = tokenizer.tokenize(sentence);
+//        }
 
-           return tokens;
+//    }
 
-       }
-   }
+//    public String[] breakSentences() throws IOException {
 
-   public List<Span> dateRecognition(String[] tokens) throws IOException{
+//        try (InputStream model = new FileInputStream("en-sent.bin")){
 
-       try(InputStream model = new FileInputStream("en-ner-date.bin")) {
+//            SentenceDetectorME sentenceDetector = new SentenceDetectorME(new SentenceModel(model));
 
-           NameFinderME nameFinder = new NameFinderME(new TokenNameFinderModel(model));
+//            String[] sentences = sentenceDetector.sentDetect(userInput);
 
-           List<Span> date = Arrays.asList(nameFinder.find(tokens));
+//            return sentences;
+//        }
+//    }
 
-           //test statements
-           System.out.println(date);
 
-           return date;
-       }
-   }
+//    public String[] tokenize(String sentence) throws IOException{
 
-   public List<Span> timeRecognition(String[] tokens) throws IOException{
+//        try(InputStream model = new FileInputStream("en-token.bin")) {
 
-       try(InputStream model = new FileInputStream("en-ner-time.bin")) {
+//            TokenizerME tokenizer = new TokenizerME(new TokenizerModel(model));
 
-           NameFinderME nameFinder = new NameFinderME(new TokenNameFinderModel(model));
+//            String[] tokens = tokenizer.tokenize(sentence);
 
-           List<Span> time = Arrays.asList(nameFinder.find(tokens));
+//            return tokens;
 
-           //test statements
-           System.out.println(time);
+//        }
+//    }
 
-           return time;
-       }
-   }
+//    public List<Span> dateRecognition(String[] tokens) throws IOException{
 
-   public String[] POSTag(String[] tokens, DoccatModel doccatModel) throws IOException{
+//        try(InputStream model = new FileInputStream("en-ner-date.bin")) {
 
-       try(InputStream model = new FileInputStream("en-pos-maxent.bin")) {
+//            NameFinderME nameFinder = new NameFinderME(new TokenNameFinderModel(model));
 
-           POSTaggerME POSTagger = new POSTaggerME(new POSModel(model));
+//            List<Span> date = Arrays.asList(nameFinder.find(tokens));
 
-           String[] POSTags = POSTagger.tag(tokens);
+//            //test statements
+//            System.out.println(date);
 
-           return POSTags;
-       }
-   }
+//            return date;
+//        }
+//    }
 
-   public String[] lemmatizeTokens(String[] tokens, String[] POSTags) throws IOException{
+//    public List<Span> timeRecognition(String[] tokens) throws IOException{
 
-       try(InputStream model = new FileInputStream("en-lemmatizer.bin")) {
+//        try(InputStream model = new FileInputStream("en-ner-time.bin")) {
 
-           LemmatizerME lemmatizer = new LemmatizerME(new LemmatizerModel(model));
+//            NameFinderME nameFinder = new NameFinderME(new TokenNameFinderModel(model));
 
-           String[] lemmatizedTokens = lemmatizer.lemmatize(tokens, POSTags);
+//            List<Span> time = Arrays.asList(nameFinder.find(tokens));
 
-           return lemmatizedTokens;
+//            //test statements
+//            System.out.println(time);
 
-       }
-   }
+//            return time;
+//        }
+//    }
 
-   public void trainDoccatModel() throws IOException{
+//    public String[] POSTag(String[] tokens, DoccatModel doccatModel) throws IOException{
 
-       InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File(/*include filename for model file*/));
-       ObjectStream<String> lineStream = new PlainTextByLineStream(inputStreamFactory, StandardCharsets.UTF_8);
-       ObjectStream<DocumentSample> sample = new DocumentSampleStream(lineStream);
+//        try(InputStream model = new FileInputStream("en-pos-maxent.bin")) {
 
-       DoccatFactory factory = new DoccatFactory(new FeatureGenerator[] { new BagOfWordsFeatureGenerator() });
+//            POSTaggerME POSTagger = new POSTaggerME(new POSModel(model));
 
-       TrainingParameters params = ModelUtil.createDefaultTrainingParameters();
-       params.put(TrainingParameters.CUTOFF_PARAM, 0);
+//            String[] POSTags = POSTagger.tag(tokens);
 
-       // Train a model with classifications from above file.
-       DoccatModel model = DocumentCategorizerME.train("en", sample, params, factory);
+//            return POSTags;
+//        }
+//    }
 
-       this.doccatModel = model;
-   }
+//    public String[] lemmatizeTokens(String[] tokens, String[] POSTags) throws IOException{
 
-   public String detectCategory(DoccatModel model, String[] tokens){
+//        try(InputStream model = new FileInputStream("en-lemmatizer.bin")) {
 
-       DocumentCategorizerME categorizer = new DocumentCategorizerME(model);
+//            LemmatizerME lemmatizer = new LemmatizerME(new LemmatizerModel(model));
 
-       double[] probabilities = categorizer.categorize(tokens);
-       String category = categorizer.getBestCategory(probabilities);
+//            String[] lemmatizedTokens = lemmatizer.lemmatize(tokens, POSTags);
 
-       return category;
-   }
+//            return lemmatizedTokens;
 
-public String dateFormatting(List<Span> dateSpan, String[] tokens) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'dateFormatting'");
-}
+//        }
+//    }
 
-}
+//    public void trainDoccatModel() throws IOException{
+
+//        InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File(/*include filename for model file*/));
+//        ObjectStream<String> lineStream = new PlainTextByLineStream(inputStreamFactory, StandardCharsets.UTF_8);
+//        ObjectStream<DocumentSample> sample = new DocumentSampleStream(lineStream);
+
+//        DoccatFactory factory = new DoccatFactory(new FeatureGenerator[] { new BagOfWordsFeatureGenerator() });
+
+//        TrainingParameters params = ModelUtil.createDefaultTrainingParameters();
+//        params.put(TrainingParameters.CUTOFF_PARAM, 0);
+
+//        // Train a model with classifications from above file.
+//        DoccatModel model = DocumentCategorizerME.train("en", sample, params, factory);
+
+//        this.doccatModel = model;
+//    }
+
+//    public String detectCategory(DoccatModel model, String[] tokens){
+
+//        DocumentCategorizerME categorizer = new DocumentCategorizerME(model);
+
+//        double[] probabilities = categorizer.categorize(tokens);
+//        String category = categorizer.getBestCategory(probabilities);
+
+//        return category;
+//    }
+
+// public String dateFormatting(List<Span> dateSpan, String[] tokens) {
+//     // TODO Auto-generated method stub
+//     throw new UnsupportedOperationException("Unimplemented method 'dateFormatting'");
+// }
+
+// }
