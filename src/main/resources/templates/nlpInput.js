@@ -1,4 +1,4 @@
-document.getElementById("sendButton").addEventListener("click", async () => {
+document.getElementById("send_btn").addEventListener("click", async () => {
   const inputText = document.getElementById("inputText").value;
 
   try {
