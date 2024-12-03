@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class nlpMain {
-    String userInput;// input string coming from web
-    String processedTask;//This will be the name of the task that appears on the website
-    String date;//this will be used to place the task in a proper location
-    String time;
+    public String userInput;// input string coming from web
+    public String processedTask;//This will be the name of the task that appears on the website
+    public String date;//this will be used to place the task in a proper location
+    public String time;
     /*same purpose as the date; however if the calendar does not organize things by time (I.E. it only
     organizes by date), this should be included alongside the processedTask so that the user remembers what time
     they included with the task*/
@@ -25,6 +25,13 @@ public class nlpMain {
         Pipeline pipeline = new Pipeline(userInput);
         public String getProcessedTask(){
         return processedTask;
+    }
+
+    public nlpMain(Task task){
+
+
+        this.userInput = task.getDescription();
+
     }
 
     public static void main(String[] args) throws IOException{
