@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #222;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 1.1em;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+            color: #334139;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #334139;
+        }
+
+        /* Dashboard Styles */
+        #dashboard {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 8px;
+        }
+
+        #dashboard h2 {
+            color: #334139;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .task-summary, .next-task, .progress-tracker {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        .task-summary p, .next-task p {
+            margin: 5px 0;
+        }
+
+        .progress-tracker h3 {
+            margin: 0 0 10px;
+        }
+
+        .progress-bar-container {
+            background-color: #555;
+            border-radius: 5px;
+            height: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #334139;
+            width: 70%; /* Example completion percentage */
+            transition: width 0.3s;
+        }
+
+        /* Button Styles */
+        .dashboard-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #334139;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dashboard-button:hover {
+            background-color: #C74024;
+        }
+    </style>
+</head>
+<body>
+<!-- Header Section -->
+<header>
+    <h1>Welcome to Your Dashboard</h1>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./login_page.html">Login</a></li>
+            <li><a href="./CalendarApp.html">Calendar</a></li>
+            <li><a href="./userInputTask.html">Task Manager</a></li>
+            <li><a href="./dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Dashboard Content -->
+<main id="dashboard">
+    <h2>Dashboard Overview</h2>
+
+    <!-- Task Summary Section -->
+    <section class="task-summary">
+        <h3>Task Summary</h3>
+        <p>Tasks Completed: <span id="tasks-completed">12</span></p>
+        <p>Pending Tasks: <span id="tasks-pending">3</span></p>
+    </section>
+
+    <!-- Next Task Section -->
+    <section class="next-task">
+        <h3>Next Task</h3>
+        <p id="next-task">Submit project report by 5 PM.</p>
+    </section>
+
+    <!-- Progress Tracker Section -->
+    <section class="progress-tracker">
+        <h3>Task Progress</h3>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <p>70% tasks completed</p>
+    </section>
+
+    <!-- Dashboard Actions -->
+    <button class="dashboard-button" onclick="alert('Add New Task Clicked!')">Add New Task</button>
+    <button class="dashboard-button" onclick="alert('View All Tasks Clicked!')">View All Tasks</button>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 TheTechSquad. All rights reserved.</p>
+    <a href="https://github.com/">View our GitHub</a>
+</footer>
+</body>
+</html>
