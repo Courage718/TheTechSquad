@@ -6,10 +6,24 @@
   <title>Calendar - TechSquad Task Manager</title>
   <link rel="stylesheet" href="/css/login_page_styling.css">
   <style>
+  * {
+  /* supress browser defaults and select alt box model */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif, Tahoma;
+  /* set variables for colors */
+  --bg-primary: #a4bab7;
+  --bg-secondary: #334139;
+  --font-color-primary: #996888;
+  --font-color-secondary: #2c1320;
+  --backup-color: #334139;
+}  
   body {
-    background-color: #334139;
-    color: white;
+    background-color: white;
+    color: black;
     font-family: Arial, sans-serif;
+    margin: 100px;
   }
 
   .calendar-container {
@@ -51,14 +65,7 @@
 <body>
 
 <header class="navbar">
-  <h1>TechSquad Task Manager</h1>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
-  </nav>
-  <a href="/login"><button class="get-started-btn">Log In</button></a>
+ <div id="header-placeholder"></div>
 </header>
 
 <main>
@@ -81,23 +88,7 @@
 </main>
 
 <footer>
-  <div class="cols">
-    <div class="about-col">
-      <h3>TechSquad Task Manager</h3>
-      <p>Smart Task Manager</p>
-    </div>
-    <div class="links-col">
-      <h4>Useful Links</h4>
-      <a href="./index.html">Home</a>
-      <a href="./contact.html">Contact</a>
-      <a href="./login.html">Log In</a>
-    </div>
-    <div class="git-link-col">
-      <h4>Useful Links</h4>
-      <a href="#">Github</a>
-    </div>
-  </div>
-  <p class="copy-right">&copy;2024 The TechSquad. All rights reserved.</p>
+  <div id="footer-placeholder"></div>
 </footer>
 
 <script>
@@ -172,7 +163,27 @@
     updateCalendar();
     checkTodayReminder();
   });
+
+  // Function to load HTML content into a placeholder
+    function loadHTML(filePath, targetElementId) {
+      fetch(filePath)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to fetch ${filePath}: ${response.statusText}`);
+          }
+          return response.text();
+        })
+        .then(data => {
+          document.getElementById(targetElementId).innerHTML = data;
+        })
+        .catch(error => console.error('Error loading HTML:', error));
+    }
+
+    // Load header and footer
+    loadHTML('header.html', 'header-placeholder');
+    loadHTML('footer.html', 'footer-placeholder');
 </script>
 
 </body>
+
 </html>

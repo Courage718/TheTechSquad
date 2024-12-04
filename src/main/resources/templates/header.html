@@ -1,0 +1,89 @@
+<style>
+* {
+  /* supress browser defaults and select alt box model */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif, Tahoma;
+  /* set variables for colors */
+  --bg-primary: #a4bab7;
+  --bg-secondary: #334139;
+  --font-color-primary: #996888;
+  --font-color-secondary: #2c1320;
+  --backup-color: #334139;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--backup-color);
+  margin-bottom: 40px;
+  padding: 2em;
+}
+
+.navbar h1{
+  color: var(--bg-primary);
+  font-size: 40px;
+  margin-right: 50px;
+}
+
+.navbar nav ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.navbar ul li{
+  list-style: none;
+}
+
+.navbar ul li a{
+  text-decoration: none;
+  margin-right: 20px;
+  color: var(--font-color-primary);
+  transition: color 0.3 ease;
+}
+
+.navbar ul li a:hover{
+  color: var(--bg-primary);
+  cursor: pointer;
+}
+
+.get-started-btn {
+  background-color: var(--font-color-primary);
+  color: var(--bg-primary);
+  padding: 5px 10px;
+  border: none;
+  font-size: medium;
+  cursor: pointer;
+  border-radius: 5px;
+  transform: background 0.3s ease;
+}
+
+.get-started-btn:hover{
+    background-color: var(--font-color-secondary);
+    color: var(--bg-primary);
+    cursor: pointer;
+}
+</style>
+
+
+
+<header class="navbar">
+  <h1>TechSquad Task Manager</h1>
+  <nav>
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./login_page.html">Login</a></li>
+      <li><a href="./CalendarApp.html">Calendar</a></li>
+      <li><a href="./userInputTask.html">Task Manager</a></li>
+      <li><a href="./dashboard.html">Dashboard</a></li>
+
+    </ul>
+  </nav>
+  <a href="/login"><button class="get-started-btn">Log In</button></a>
+</header>

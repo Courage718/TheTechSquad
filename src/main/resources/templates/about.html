@@ -11,23 +11,21 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            
         }
 
-        h1, h2, h3 {
+        h2, h3 {
             font-weight: bold;
             color: #334139;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         header, footer {
             background-color: #222;
             color: white;
             padding: 15px 0;
-        }
-
-        header h1 {
-            margin: 0;
-            padding: 0 20px;
-            text-align: center;
         }
 
         nav ul {
@@ -37,8 +35,11 @@
         }
 
         nav ul li {
-            display: inline;
+            /* display: inline; */
             margin: 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         nav ul li a {
@@ -54,10 +55,10 @@
 
         main {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
+            margin: 200px auto;
+            padding: 4em;
             background-color: #222;
-            border-radius: 8px;
+            border-radius: 10px;
         }
 
         section {
@@ -71,39 +72,10 @@
             margin-top: 20px;
         }
 
-        footer a {
-            color: white;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-            color: #334139;
-        }
-
-        footer .copy-right {
-            font-size: 0.9em;
-            margin-top: 20px;
-            color: #aaa;
-        }
     </style>
 </head>
 <body>
-<header>
-    <h1>About Us</h1>
-    <nav>
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./about.html">About</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-
-            <li><a href="./login_page.html">Login</a></li>
-            <li><a href="./CalendarApp.html">Calendar</a></li>
-            <li><a href="./userInputTask.html">Task Manager</a></li>
-            <li><a href="./dashboard.html">Dashboard</a></li>
-        </ul>
-    </nav>
-</header>
+<div id="header-placeholder"></div>
 <main>
     <section>
         <h2>Our Mission</h2>
@@ -133,11 +105,29 @@
     </section>
 </main>
 <footer>
-    <p>&copy; 2024 TheTechSquad. All rights reserved.</p>
-    <div class="copy-right">
-        <a href="https://github.com/">View our GitHub</a>
-    </div>
+    <div id="footer-placeholder"></div>
 </footer>
+
+<script>
+    // Function to load HTML content into a placeholder
+    function loadHTML(filePath, targetElementId) {
+      fetch(filePath)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to fetch ${filePath}: ${response.statusText}`);
+          }
+          return response.text();
+        })
+        .then(data => {
+          document.getElementById(targetElementId).innerHTML = data;
+        })
+        .catch(error => console.error('Error loading HTML:', error));
+    }
+
+    // Load header and footer
+    loadHTML('header.html', 'header-placeholder');
+    loadHTML('footer.html', 'footer-placeholder');
+  </script>
 </body>
 </html>
 

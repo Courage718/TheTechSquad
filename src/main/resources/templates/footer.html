@@ -1,0 +1,81 @@
+<style>
+footer{
+  background: var(--bg-secondary);
+  /* padding: 80px 50px 40px; */
+  /* margin-top: 150px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer .cols {
+  display: flex;
+  align-items: flex-start;
+  margin: 5px;
+  padding: 5em;
+  }
+
+  footer .cols .about-col{
+    flex: 5;
+  }
+
+  footer .cols .links-col{
+    margin-left: 40px;
+    flex: 5;
+  }
+
+  footer .cols .links-col a {
+    display: block;
+    text-decoration: none;
+    color: var(--bg-primary);
+    font-size: 14px;
+    line-height: 26px;
+    transition: color 0.3s ease;
+  }
+
+  footer .cols .links-col a:hover{
+    color: var(--font-color-primary);
+  }
+
+  footer .cols .git-link-col{
+    flex: 5;
+  }
+
+  footer .cols .git-link-col a{
+    text-decoration: none;
+    color: var(--bg-primary);
+    transition: color 0.3s ease;
+  }
+
+  footer .cols .git-link-col a:hover{
+    color: var(--font-color-primary);
+  }
+</style>
+
+<footer>
+  <div class="cols">
+    <div class="about-col">
+      <h3>TechSquad Task Manager</h3>
+      <p>Smart Task Manager</p>
+    </div>
+
+    <div class="links-col">
+      <h4>Useful Links</h4>
+      <a href="/">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./userInputTask.html">Task Manager</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./login_page.html">Log In</a>
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./CalendarApp.html">Calendar</a>
+
+    </div>
+
+    <div class="git-link-col">
+      <h4>Useful Links</h4>
+      <a href="https://github.com/">Github</a>
+    </div>
+  </div>
+  <p class="copy-right">&copy;2024 The TechSquad. All rights reserved.</p>
+</footer>
+

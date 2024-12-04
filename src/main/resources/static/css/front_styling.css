@@ -27,7 +27,8 @@ body {
 }
 
 .navbar h1{
-
+  color: var(--bg-primary);
+  font-size: 60px;
 }
 
 .navbar nav ul{
