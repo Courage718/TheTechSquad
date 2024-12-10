@@ -101,12 +101,33 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: 30px;
     }
 
     .submit-btn button{
         cursor: pointer;
+        width: 45%;
+        height: 30px;
+        border-radius: 40px;
+        font-weight: 500;
+        font-size: 100%;
     }
 
+    .view-task{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 40px;
+    }
+
+    .view-task button{
+        cursor: pointer;
+        width: 80%;
+        height: 30px;
+        border-radius: 40px;
+        font-weight: 500;
+        font-size: 100%;
+    }
 
     footer a {
         color: white;
@@ -158,6 +179,10 @@
 
                 <div class="submit-btn">
                     <button type="submit">Add Task</button>
+                </div>
+
+                <div class="view-task">
+                    <button href="/src/main/resources/templates/task_list.html" type="submit">View Added Task</button>
                 </div>
 
             </form>
