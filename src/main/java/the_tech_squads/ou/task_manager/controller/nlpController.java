@@ -1,28 +1,49 @@
 package the_tech_squads.ou.task_manager.controller;
 
-import java.io.IOException;
+import java.util.Objects;
 
-import org.springframework.web.bind.annotation.*;
-
-import the_tech_squads.ou.task_manager.nlp.Pipeline;
-
-@RestController
-@RequestMapping("/process-nlp")
 public class nlpController {
+    private final String task;
+    private final String date;
+    private final String category;
 
-    private final Pipeline pipeline;
-
-    public nlpController() {
-        this.pipeline = new Pipeline(null);
+    // Constructor for initializing all fields
+    public nlpController(String task, String date, String category) {
+        this.task = task;
+        this.date = date;
+        this.category = category;
     }
 
-    @PostMapping
-    public NlpResponse processText(@RequestBody NlpRequest request) throws IOException {
-        String userInput = request.getText();
-        String processedTask = (pipeline).processTask(userInput);
-        String date = pipeline.extractDate(userInput);  
-        String category = pipeline.detectCategory(userInput);  
+    public String getTask() {
+        return task;
+    }
 
-        return new NlpResponse(processedTask, date, category);
+    public String getDate() {
+        return date;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    @Override
+    public String toString() {
+        return "NlpResponse{" +
+               "task='" + task + '\'' +
+               ", date='" + date + '\'' +
+               ", category='" + category + '\'' +
+               '}';
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        nlpController that = (nlpController) o;
+        return task.equals(that.task) && date.equals(that.date) && category.equals(that.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(task, date, category);
     }
 }
