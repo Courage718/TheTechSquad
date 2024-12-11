@@ -1,43 +1,33 @@
 package the_tech_squads.ou.task_manager.controller;
 
-import the_tech_squads.ou.task_manager.nlp.Pipeline;
+import java.io.IOException;
 
 import org.springframework.web.bind.annotation.*;
 
-import opennlp.tools.util.Span;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import the_tech_squads.ou.task_manager.nlp.Pipeline;
 
 @RestController
-@RequestMapping("/api/nlp")
-@CrossOrigin(origins = "*")
+@RequestMapping("/process-nlp")
 public class nlpController {
 
-    @PostMapping("/process")
-    public Map<String, String> processInput(@RequestBody Map<String, String> request) {
-        String userInput = request.get("input");
-        Map<String, String> response = new HashMap<>();
-        
-        try {
-            Pipeline pipeline = new Pipeline(userInput);
-            pipeline.trainDoccatModel();  // Ensure models are loaded
-            String[] sentences = pipeline.breakSentences();
-            String[] tokens = pipeline.tokenize(sentences[0]);  // Process the first sentence for simplicity
-            
-            // Detect date and category
-            List<Span> dateSpan = pipeline.dateRecognition(tokens);
-            String formattedDate = pipeline.dateFormatting(dateSpan, tokens);
-            String category = pipeline.detectCategory(pipeline.doccatModel, tokens);
+    private final Pipeline pipeline;
 
-            // Return response
-            response.put("processedTask", category);
-            response.put("date", formattedDate);
-        } catch (Exception e) {
-            response.put("error", e.getMessage());
-        }
+    public nlpController() {
+        // Initialize your NLP pipeline here, if necessary
+        this.pipeline = new Pipeline(null);
+    }
 
-        return response;
+    @PostMapping
+    public NlpResponse processText(@RequestBody NlpRequest request) throws IOException {
+        // Use the NLP pipeline to process the input text
+        String userInput = request.getText();
+
+        // Assuming your NLP pipeline processes the text and returns appropriate results
+        String processedTask = (pipeline).processTask(userInput);
+        String date = pipeline.extractDate(userInput);  // This should be part of your NLP pipeline
+        String category = pipeline.detectCategory(userInput);  // Based on your NLP pipeline
+
+        // Create and return the response
+        return new NlpResponse(processedTask, date, category);
     }
 }

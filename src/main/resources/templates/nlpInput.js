@@ -1,21 +1,34 @@
-document.getElementById("send_btn").addEventListener("click", async () => {
-  const inputText = document.getElementById("inputText").value;
+document.getElementById("send_btn").addEventListener("click", function () {
+  // Get the user input
+  const userInput = document.getElementById("inputText").value;
 
-  try {
-    const response = await fetch("http://localhost:8080/api/nlp/process", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: inputText }),
-    });
-
-    const result = await response.json();
-    document.getElementById("response").innerHTML = `
-          <p><strong>Nouns:</strong> ${result.nouns.join(", ")}</p>
-          <p><strong>Verbs:</strong> ${result.verbs.join(", ")}</p>
-        `;
-  } catch (error) {
-    document.getElementById(
-      "response"
-    ).innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
+  // Check if input is empty
+  if (!userInput.trim()) {
+    alert("Please enter some text.");
+    return;
   }
+
+  // Create the request payload
+  const payload = { text: userInput };
+
+  // Use fetch to send the data to the backend (you can also use AJAX here)
+  fetch("/process-nlp", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Display the result in the response div
+      document.getElementById(
+        "response"
+      ).innerHTML = `<strong>Processed Task:</strong> ${data.processedTask}<br><strong>Formatted Date:</strong> ${data.date}<br><strong>Category:</strong> ${data.category}`;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      document.getElementById("response").innerHTML =
+        "Error processing the request. Please try again later.";
+    });
 });
