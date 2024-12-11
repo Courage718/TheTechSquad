@@ -6,39 +6,46 @@
   <title>Calendar - TechSquad Task Manager</title>
   <link rel="stylesheet" href="/css/login_page_styling.css">
   <style>
-    .calendar-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 20px;
-    }
-    .calendar-header {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 500px;
-    }
-    .calendar-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
-      max-width: 500px;
-    }
-    .calendar-day, .calendar-grid .day-name {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px;
-      border: 1px solid #ddd;
-      cursor: pointer;
-    }
-    .calendar-grid .day-name {
-      font-weight: bold;
-    }
-    .calendar-day.reminder {
-      background-color: yellow;
-    }
-  </style>
+  body {
+    background-color: #334139;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+
+  .calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+  }
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    max-width: 500px;
+  }
+  .calendar-day, .calendar-grid .day-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+  .calendar-grid .day-name {
+    font-weight: bold;
+  }
+  .calendar-day.reminder {
+    background-color: yellow;
+  }
+</style>
+
 </head>
 
 <body>
@@ -81,9 +88,9 @@
     </div>
     <div class="links-col">
       <h4>Useful Links</h4>
-      <a href="/">Home</a>
-      <a href="/contact">Contact</a>
-      <a href="/login">Log In</a>
+      <a href="./index.html">Home</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./login.html">Log In</a>
     </div>
     <div class="git-link-col">
       <h4>Useful Links</h4>

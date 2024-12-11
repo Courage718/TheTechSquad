@@ -3,75 +3,267 @@
 <head>
   <meta charset="UTF-8" />
   <title>Task Manager</title>
-  <link rel="stylesheet" href="css/front_styling.css" />
-  <style>
-    /* General Styling */
-    body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      font-family: Arial, sans-serif;
-    }
+  <!-- <link rel="stylesheet" href="/front_styling.css"/> -->
+<style>
+  * {
+  /* supress browser defaults and select alt box model */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif, Tahoma;
+  /* set variables for colors */
+  --bg-primary: #a4bab7;
+  --bg-secondary: #334139;
+  --font-color-primary: #996888;
+  --font-color-secondary: #2c1320;
+  --backup-color: #334139;
+}
 
-    .navbar ul {
-      list-style-type: none;
-      padding: 0;
-      display: flex;
-      justify-content: space-around;
-      background-color: #333;
-    }
+body {
+  height: 100vh;
+  background-color: var(--bg-primary);
+}
 
-    .navbar ul li {
-      display: inline;
-    }
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--backup-color);
+  margin-bottom: 50px;
+  padding: 3%;
+}
 
-    .navbar ul li a {
-      color: white;
-      padding: 14px 20px;
-      text-decoration: none;
-      display: block;
-    }
+.navbar h1{
 
-    .navbar ul li a:hover {
-      background-color: #575757;
-    }
+}
 
-    .beginning-intro {
-      text-align: center;
-      padding: 50px;
-      background-color: #f4f4f4;
-    }
+.navbar nav ul{
+  display: flex;
+}
 
-    .app-features, .regis {
-      padding: 20px;
-    }
+.navbar ul li{
+  list-style: none;
+}
 
-    .get-started-btn {
-      padding: 10px 20px;
-      font-size: 1em;
-      color: #fff;
-      background-color: #ffcb05;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-transform: uppercase;
-      transition: background-color 0.3s ease;
-      text-decoration: none;
-    }
+.navbar ul li a{
+  text-decoration: none;
+  margin-right: 20px;
+  color: var(--font-color-primary);
+  transition: color 0.3 ease;
+}
 
-    .get-started-btn:hover {
-      background-color: #ffc107;
-    }
-  </style>
+.navbar ul li a:hover{
+  color: var(--bg-primary);
+  cursor: pointer;
+}
+
+.get-started-btn {
+  background-color: var(--font-color-primary);
+  color: var(--bg-primary);
+  padding: 5px 10px;
+  border: none;
+  font-size: medium;
+  cursor: pointer;
+  border-radius: 5px;
+  transform: background 0.3s ease;
+}
+
+.get-started-btn:hover{
+    background-color: var(--font-color-secondary);
+    color: var(--bg-primary);
+    cursor: pointer;
+}
+
+.beginning-intro{
+  margin: 20px;
+  padding: 30px;
+}
+
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--font-color-primary);
+}
+
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+  padding: 1em;
+  font-size: larger;
+}
+
+.app-features{
+  /* margin: 70px; */
+  padding: 40px;
+  background-color: var(--backup-color);
+  transition: color 0.3 ease;
+}
+
+.app-features:hover{
+  background-color: var(--font-color-primary);
+  cursor: pointer;
+}
+
+.features-intro h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  color: var(--bg-primary);
+}
+
+.features-intro p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  margin: 10px;
+  padding: 2em;
+  color: var(--bg-primary);
+}
+
+.feature-detail{
+  margin: 0;
+  padding: 2em;
+}
+
+.feature-detail h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  columns: var(--bg-primary);
+  color: var(--bg-primary);
+}
+
+.feature-detail p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  columns: var(--bg-primary);
+  color: var(--bg-primary);
+  margin: 40px;
+}
+
+.more-detail{
+  margin: 0;
+  padding: 2em;
+}
+
+.more-detail h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  columns: var(--bg-primary);
+  color: var(--bg-primary);
+}
+
+.more-detail p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  columns: var(--bg-primary);
+  color: var(--bg-primary);
+  margin: 40px;
+}
+
+.regis{
+  margin: 10px;
+  padding: 40px;
+}
+
+.regis .info{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.regis .info h3{
+  font-size: x-large;
+  font-weight: 400;
+}
+
+.regis .info p{
+  font-size: large;
+  margin: 10px;
+  padding: auto;
+}
+
+footer{
+  background: var(--bg-secondary);
+  padding: 80px 50px 40px;
+  margin-top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer .cols {
+  display: flex;
+  align-items: flex-start;
+  margin: 5px;
+  padding: 5em;
+  }
+
+  footer .cols .about-col{
+    flex: 5;
+  }
+
+  footer .cols .links-col{
+    margin-left: 40px;
+    flex: 5;
+  }
+
+  footer .cols .links-col a {
+    display: block;
+    text-decoration: none;
+    color: var(--bg-primary);
+    font-size: 14px;
+    line-height: 26px;
+    transition: color 0.3s ease;
+  }
+
+  footer .cols .links-col a:hover{
+    color: var(--font-color-primary);
+  }
+
+  footer .cols .git-link-col{
+    flex: 5;
+  }
+
+  footer .cols .git-link-col a{
+    text-decoration: none;
+    color: var(--bg-primary);
+    transition: color 0.3s ease;
+  }
+
+  footer .cols .git-link-col a:hover{
+    color: var(--font-color-primary);
+  }
+
+</style>
 </head>
 <body>
 <header class="navbar">
   <h1>TechSquad Task Manager</h1>
   <nav>
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/calendar">Calendar</a></li> <!-- Link to your separate calendar page -->
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./login_page.html">Login</a></li>
+      <li><a href="./CalendarApp.html">Calendar</a></li>
+      <li><a href="./userInputTask.html">Task Manager</a></li>
+      <li><a href="./dashboard.html">Dashboard</a></li>
+
     </ul>
   </nav>
   <a href="/login"><button class="get-started-btn">Log In</button></a>
@@ -120,15 +312,18 @@
     <div class="links-col">
       <h4>Useful Links</h4>
       <a href="/">Home</a>
-      <a href="#">About</a>
-      <a href="/task">Task Manager</a>
-      <a href="#">Contact</a>
-      <a href="/login">Log In</a>
+      <a href="./about.html">About</a>
+      <a href="./userInputTask.html">Task Manager</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./login_page.html">Log In</a>
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./CalendarApp.html">Calendar</a>
+
     </div>
 
     <div class="git-link-col">
       <h4>Useful Links</h4>
-      <a href="#">Github</a>
+      <a href="https://github.com/">Github</a>
     </div>
   </div>
   <p class="copy-right">&copy;2024 The TechSquad. All rights reserved.</p>
