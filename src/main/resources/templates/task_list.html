@@ -106,7 +106,21 @@
         text-align: center;
         color: #777;
     }
+    .submit-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 30px;
+    }
 
+    .submit-btn button{
+        cursor: pointer;
+        width: 45%;
+        height: 30px;
+        border-radius: 40px;
+        font-weight: 500;
+        font-size: 100%;
+    }
 </style>
 
 <header class="navbar">
@@ -139,6 +153,11 @@
                     </tr>
                     </tbody>
                 </table>
+                <div class="submit-btn">
+                    <button><a href="/task">Add new task</a></button>
+                </div>
+
+
             </div>
             <div th:if="${tasks.size() == 0}">
                 <p>No tasks found for this user.</p>
