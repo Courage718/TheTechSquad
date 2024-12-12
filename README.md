@@ -21,6 +21,7 @@ Java Calendar integration for scheduling ease.
 Navigating the Website
 Home:
 The Home page is the default landing page of the website.
+<img width="1255" alt="image" src="https://github.com/user-attachments/assets/67279ffc-b7a4-4a25-932d-541596930b3f" />
 
 About:
 The About page contains information about the website and its creators.
