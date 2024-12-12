@@ -1,0 +1,974 @@
+Schedule O
+a O
+meeting B-TASK
+for O
+next B-DATE
+Monday B-DATE
+
+Remind O
+me O
+to O
+call B-TASK
+Sarah B-PERSON
+at O
+10 B-TIME
+AM B-TIME
+
+Plan O
+the O
+project B-TASK
+timeline B-TASK
+by O
+Friday B-DATE
+
+Write O
+a O
+blog B-TASK
+post B-TASK
+on O
+AI O
+
+Prepare O
+presentation B-TASK
+slides B-TASK
+for O
+the O
+conference B-TASK
+in O
+March B-DATE
+
+Buy O
+groceries B-TASK
+on O
+Saturday B-DATE
+
+Submit O
+the O
+assignment B-TASK
+before O
+noon B-TIME
+tomorrow B-DATE
+
+Finish O
+reading B-TASK
+the O
+book B-TASK
+this O
+weekend B-DATE
+
+Draft O
+a O
+contract B-TASK
+for O
+the O
+client B-PERSON
+
+Plan O
+the O
+team B-TASK
+outing B-TASK
+for O
+next B-DATE
+month B-DATE
+
+Book O
+flight B-TASK
+tickets B-TASK
+for O
+New B-LOCATION
+York I-LOCATION
+on O
+April B-DATE
+15th B-DATE
+
+Set O
+up O
+a O
+meeting B-TASK
+with O
+Tom B-PERSON
+next B-DATE
+Wednesday B-DATE
+
+Clean O
+the O
+garage B-TASK
+on O
+Sunday B-DATE
+
+Update O
+the O
+software B-TASK
+by O
+5 B-TIME
+PM B-TIME
+today B-DATE
+
+Organize O
+the O
+files B-TASK
+for O
+the O
+legal B-TASK
+case B-TASK
+
+Host O
+a O
+webinar B-TASK
+about O
+cloud B-TASK
+computing B-TASK
+this O
+Thursday B-DATE
+
+Paint O
+the O
+living B-TASK
+room B-TASK
+walls B-TASK
+
+Schedule O
+a O
+dentist B-TASK
+appointment B-TASK
+on O
+June B-DATE
+2nd B-DATE
+
+Send O
+an O
+email B-TASK
+to O
+the O
+team B-TASK
+about O
+next B-DATE
+quarter's B-DATE
+goals B-TASK
+
+Prepare O
+notes B-TASK
+for O
+the O
+staff B-TASK
+meeting B-TASK
+
+Order O
+office B-TASK
+supplies B-TASK
+by O
+next B-DATE
+Tuesday B-DATE
+
+Develop O
+a O
+new B-TASK
+feature B-TASK
+for O
+the O
+mobile B-TASK
+app B-TASK
+
+Test O
+the O
+backup B-TASK
+system B-TASK
+by O
+4 B-TIME
+PM B-TIME
+on O
+Monday B-DATE
+
+Review O
+the O
+financial B-TASK
+report B-TASK
+for O
+last B-DATE
+quarter B-DATE
+this O
+week B-DATE
+
+Plan O
+a O
+surprise B-TASK
+party B-TASK
+for O
+Jane B-PERSON
+next B-DATE
+Saturday B-DATE
+
+Attend O
+the O
+product B-TASK
+launch B-TASK
+event B-TASK
+
+Create O
+a O
+social B-TASK
+media B-TASK
+campaign B-TASK
+
+Write O
+test B-TASK
+cases B-TASK
+for O
+the O
+software B-TASK
+release B-TASK
+
+Schedule O
+a O
+meeting B-TASK
+to O
+discuss B-TASK
+marketing B-TASK
+strategies B-TASK
+on O
+March B-DATE
+10th B-DATE
+
+Call O
+the O
+insurance B-TASK
+company B-TASK
+to O
+renew B-TASK
+the O
+policy B-TASK
+
+Start O
+working B-TASK
+on O
+the O
+research B-TASK
+paper B-TASK
+
+Attend O
+a O
+workshop B-TASK
+on O
+data B-TASK
+analysis B-TASK
+
+Organize O
+a O
+team B-TASK
+building B-TASK
+exercise B-TASK
+
+Fix O
+the O
+broken B-TASK
+kitchen B-TASK
+sink B-TASK
+
+Update O
+the O
+resume B-TASK
+and O
+apply B-TASK
+for O
+new B-TASK
+jobs B-TASK
+
+Make O
+a O
+reservation B-TASK
+for O
+dinner B-TASK
+on O
+Saturday B-DATE
+evening B-TIME
+
+Research O
+topics B-TASK
+for O
+the O
+science B-TASK
+fair B-TASK
+next O
+month B-DATE
+
+Follow O
+up O
+with O
+the O
+contractor B-TASK
+about O
+the O
+renovation B-TASK
+project B-TASK
+
+Send O
+a O
+gift B-TASK
+to O
+my O
+parents B-TASK
+on O
+their O
+anniversary B-DATE
+
+Prepare O
+for O
+the O
+quarterly B-TASK
+sales B-TASK
+presentation B-TASK
+on O
+April B-DATE
+20th B-DATE
+
+Finish O
+coding B-TASK
+the O
+API B-TASK
+integration B-TASK
+by O
+next B-DATE
+Friday B-DATE
+
+Organize O
+a O
+charity B-TASK
+event B-TASK
+for O
+the O
+local B-TASK
+community B-TASK
+
+Design O
+a O
+poster B-TASK
+for O
+the O
+upcoming B-TASK
+concert B-TASK
+
+Plan O
+the O
+company's B-TASK
+holiday B-TASK
+party B-TASK
+for O
+December B-DATE
+15th B-DATE
+
+Schedule O
+a O
+car B-TASK
+service B-TASK
+appointment B-TASK
+on O
+Monday B-DATE
+
+Pay O
+the O
+electricity B-TASK
+bill B-TASK
+before O
+5 B-TIME
+PM B-TIME
+today B-DATE
+
+Review O
+and O
+approve B-TASK
+the O
+project B-TASK
+budget B-TASK
+by O
+this B-DATE
+Thursday B-DATE
+
+Plan O
+a O
+family B-TASK
+picnic B-TASK
+next O
+weekend B-DATE
+
+Submit O
+the O
+tax B-TASK
+returns B-TASK
+before O
+the O
+deadline B-DATE
+
+Fix O
+the O
+leaky B-TASK
+faucet B-TASK
+in O
+the O
+bathroom B-TASK
+
+Host O
+a O
+book B-TASK
+club B-TASK
+meeting B-TASK
+this O
+Sunday B-DATE
+
+Learn O
+how O
+to O
+play B-TASK
+the O
+guitar B-TASK
+this O
+month B-DATE
+
+Bake O
+a O
+cake B-TASK
+for O
+the O
+birthday B-TASK
+party B-TASK
+
+Register O
+for O
+a O
+Python B-TASK
+programming B-TASK
+workshop B-TASK
+
+Buy O
+flowers B-TASK
+for O
+Valentine's B-DATE
+Day B-DATE
+
+Train O
+for O
+the O
+upcoming B-TASK
+marathon B-TASK
+
+Clean O
+the O
+kitchen B-TASK
+and O
+vacuum B-TASK
+the O
+living B-TASK
+room B-TASK
+
+Write O
+an O
+article B-TASK
+about O
+climate B-TASK
+change B-TASK
+
+Prepare O
+study B-TASK
+materials B-TASK
+for O
+the O
+midterm B-TASK
+exam B-TASK
+
+Organize O
+the O
+closet B-TASK
+this O
+weekend B-DATE
+
+Join O
+a O
+yoga B-TASK
+class B-TASK
+
+Pick O
+up O
+groceries B-TASK
+for O
+the O
+week B-TASK
+
+Repair O
+the O
+bike B-TASK
+chain B-TASK
+
+Take O
+the O
+dog B-TASK
+to O
+the O
+vet B-TASK
+next O
+Thursday B-DATE
+
+Plan O
+a O
+team B-TASK
+strategy B-TASK
+meeting B-TASK
+
+Complete O
+the O
+documentation B-TASK
+for O
+the O
+software B-TASK
+release B-TASK
+
+Check O
+on O
+the O
+inventory B-TASK
+levels B-TASK
+
+Write O
+a O
+thank-you B-TASK
+note B-TASK
+to O
+the O
+event B-TASK
+sponsor B-TASK
+
+Plan O
+a O
+hiking B-TASK
+trip B-TASK
+for O
+the O
+long B-DATE
+weekend B-DATE
+
+Pay O
+the O
+internet B-TASK
+bill B-TASK
+this O
+Friday B-DATE
+
+Fix O
+the O
+loose B-TASK
+door B-TASK
+hinges B-TASK
+in O
+the O
+garage B-TASK
+
+Schedule O
+a O
+parent-teacher B-TASK
+meeting B-TASK
+for O
+next B-DATE
+Wednesday B-DATE
+
+Research O
+new B-TASK
+marketing B-TASK
+strategies B-TASK
+for O
+the O
+campaign B-TASK
+
+Develop O
+a O
+workshop B-TASK
+on O
+time B-TASK
+management B-TASK
+
+Host O
+a O
+virtual B-TASK
+networking B-TASK
+event B-TASK
+
+Plan O
+a O
+weekend B-TASK
+getaway B-TASK
+for O
+the O
+family B-TASK
+
+Repair O
+the O
+leaking B-TASK
+roof B-TASK
+before O
+the O
+rainy B-DATE
+season B-DATE
+
+Finish O
+writing B-TASK
+the O
+grant B-TASK
+proposal B-TASK
+
+Conduct O
+interviews B-TASK
+for O
+the O
+new B-TASK
+positions B-TASK
+in O
+the O
+team B-TASK
+
+Book O
+tickets B-TASK
+for O
+the O
+movie B-TASK
+this O
+Saturday B-DATE
+evening B-TIME
+
+Arrange O
+a O
+meeting B-TASK
+with O
+the O
+team B-TASK
+next O
+Monday B-DATE
+morning B-TIME
+
+Call O
+the O
+plumber B-TASK
+to O
+fix B-TASK
+the O
+kitchen B-TASK
+sink B-TASK
+
+Plan O
+a O
+surprise B-TASK
+party B-TASK
+for O
+Alice B-TASK
+on O
+her O
+birthday B-DATE
+
+Prepare O
+a O
+report B-TASK
+on O
+the O
+monthly B-TASK
+sales B-TASK
+
+Buy O
+a O
+new B-TASK
+laptop B-TASK
+bag B-TASK
+next O
+week B-DATE
+
+Visit O
+the O
+dentist B-TASK
+for O
+a O
+regular B-TASK
+checkup B-TASK
+
+Order O
+groceries B-TASK
+for O
+the O
+week B-TASK
+by O
+tonight B-TIME
+
+Send O
+out O
+invitations B-TASK
+for O
+the O
+wedding B-TASK
+
+Organize O
+files B-TASK
+on O
+my O
+desktop B-TASK
+
+Clean O
+the O
+guest B-TASK
+bedroom B-TASK
+before O
+Saturday B-DATE
+
+Read O
+three B-TASK
+chapters B-TASK
+of O
+the O
+new B-TASK
+novel B-TASK
+
+Set O
+up O
+a O
+doctor's B-TASK
+appointment B-TASK
+for O
+next B-DATE
+Tuesday B-DATE
+
+Finish O
+decorating B-TASK
+the O
+living B-TASK
+room B-TASK
+
+Practice O
+the O
+piano B-TASK
+every O
+evening B-TIME
+this O
+week B-DATE
+
+Prepare O
+the O
+slides B-TASK
+for O
+the O
+client B-TASK
+meeting B-TASK
+next O
+Wednesday B-DATE
+
+Repair O
+the O
+leaking B-TASK
+pipe B-TASK
+in O
+the O
+basement B-TASK
+
+Learn O
+five B-TASK
+new B-TASK
+vocabulary B-TASK
+words B-TASK
+each O
+day B-TIME
+
+Mail O
+the O
+contract B-TASK
+to O
+the O
+client B-TASK
+by O
+Friday B-DATE
+
+Pack O
+my O
+suitcase B-TASK
+for O
+the O
+weekend B-DATE
+trip B-TASK
+
+Plan O
+the O
+menu B-TASK
+for O
+Sunday B-DATE
+dinner B-TASK
+
+Host O
+a O
+webinar B-TASK
+on O
+financial B-TASK
+planning B-TASK
+
+Declutter O
+my O
+workspace B-TASK
+by O
+the O
+end B-TIME
+of O
+the O
+week B-DATE
+
+Renew O
+my O
+passport B-TASK
+before O
+the O
+trip B-DATE
+
+Attend O
+the O
+networking B-TASK
+event B-TASK
+next O
+Friday B-DATE
+
+Research O
+flight B-TASK
+options B-TASK
+for O
+the O
+vacation B-TASK
+
+Reorganize O
+the O
+bookshelf B-TASK
+this O
+weekend B-DATE
+
+Start O
+learning B-TASK
+a O
+new B-TASK
+language B-TASK
+
+Pay O
+the O
+credit B-TASK
+card B-TASK
+bill B-TASK
+before O
+midnight B-TIME
+
+Plan O
+a O
+karaoke B-TASK
+night B-TASK
+with O
+friends B-TASK
+
+Prepare O
+a O
+presentation B-TASK
+on O
+artificial B-TASK
+intelligence B-TASK
+
+Buy O
+a O
+gift B-TASK
+for O
+my O
+best B-TASK
+friend B-TASK
+
+Sign O
+up O
+for O
+a O
+painting B-TASK
+class B-TASK
+
+Schedule O
+a O
+haircut B-TASK
+for O
+next B-DATE
+Saturday B-DATE
+
+Donate O
+clothes B-TASK
+to O
+the O
+local B-TASK
+charity B-TASK
+
+Watch O
+the O
+latest B-TASK
+documentary B-TASK
+on O
+climate B-TASK
+change B-TASK
+
+Go O
+for O
+a O
+run B-TASK
+every O
+morning B-TIME
+
+Update O
+the O
+software B-TASK
+on O
+my O
+computer B-TASK
+
+Set O
+up O
+a O
+backup B-TASK
+schedule B-TASK
+for O
+important B-TASK
+files B-TASK
+
+Prepare O
+a O
+list B-TASK
+of O
+questions B-TASK
+for O
+the O
+upcoming B-TASK
+interview B-TASK
+
+Test O
+the O
+prototype B-TASK
+of O
+the O
+new B-TASK
+app B-TASK
+
+Attend O
+the O
+community B-TASK
+cleanup B-TASK
+event B-TASK
+
+Volunteer O
+at O
+the O
+animal B-TASK
+shelter B-TASK
+
+Schedule O
+a O
+strategy B-TASK
+session B-TASK
+with O
+the O
+project B-TASK
+team B-TASK
+
+Prepare O
+a O
+study B-TASK
+guide B-TASK
+for O
+the O
+final B-TASK
+exam B-TASK
