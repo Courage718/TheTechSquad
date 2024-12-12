@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>user input task</title>
-    <link rel="stylesheet" href="/css/userinput_styling.css">
+    <!-- <link rel="stylesheet" href="/css/userinput_styling.css"> -->
     <script src="./task.js" defer> </script>
 </head>
 <body>
@@ -106,11 +106,53 @@
 
     .submit-btn button{
         cursor: pointer;
-        width: 45%;
-        height: 30px;
+        width: 50%;
+        height: 40px;
         border-radius: 40px;
         font-weight: 500;
         font-size: 100%;
+    }
+
+    .task-name{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .task-name input{
+        height: 30px;
+        width: 200px;
+    }
+
+    .task-description{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .task-description textarea{
+        width: 400px;
+        height: 100px;
+    }
+    
+    .task-due{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .task-priority{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-direction: column;
+        margin: 20px;
     }
 
     .view-task{
@@ -123,7 +165,7 @@
     .view-task button{
         cursor: pointer;
         width: 80%;
-        height: 30px;
+        height: 40px;
         border-radius: 40px;
         font-weight: 500;
         font-size: 100%;
