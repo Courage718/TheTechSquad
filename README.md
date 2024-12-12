@@ -46,7 +46,6 @@ This link redirects to the website's GitHub repository,
 which contain source code and other information.
 
 Contacting the Team
-
 If you're experiencing any issues navigating the website, 
 don't hesitate to reach out to one of our team members for assistance. 
 We're here to help you resolve any problems and ensure a smooth experience.
