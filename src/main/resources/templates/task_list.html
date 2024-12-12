@@ -1,25 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My tasks</title>
     <link rel="stylesheet" href="/css/userinput_styling.css">
+    <link rel="stylesheet" href="/css/front_styling.css">
     <script src="./task.js" defer> </script>
 </head>
 <body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .navbar {
+        background-color: #333;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .navbar h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 0.5rem;
+        transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        background-color: #575757;
+        border-radius: 5px;
+    }
+
+    /* Table Styling */
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    table th,
+    table td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    table td {
+        border-bottom: 1px solid #ddd;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    div p {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #555;
+        padding: 20px;
+    }
+
+    h1, h2 {
+        color: #333;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1.1rem;
+        text-align: center;
+        color: #777;
+    }
+    .submit-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 30px;
+    }
+
+    .submit-btn button{
+        cursor: pointer;
+        width: 45%;
+        height: 30px;
+        border-radius: 40px;
+        font-weight: 500;
+        font-size: 100%;
+    }
+</style>
+
 <header class="navbar">
     <h1>TechSquad Task Manager</h1>
     <nav>
         <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./about.html">About</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-            <li><a href="./login_page.html">Login</a></li>
-            <li><a href="./CalendarApp.html">Calendar</a></li>
-            <li><a href="./userInputTask.html">Task Manager</a></li>
-            <li><a href="./dashboard.html">Dashboard</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About </a></li>
+            <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
+    <div id="header-placeholder"></div>
 </header>
 <body>
             <!--table displaying tasks by user id-->
@@ -40,6 +153,11 @@
                     </tr>
                     </tbody>
                 </table>
+                <div class="submit-btn">
+                    <button><a href="/task">Add new task</a></button>
+                </div>
+
+
             </div>
             <div th:if="${tasks.size() == 0}">
                 <p>No tasks found for this user.</p>
@@ -48,4 +166,22 @@
 
 
 </body>
-</html>
+<script>
+    // Function to load HTML content into a placeholder
+    function loadHTML(filePath, targetElementId) {
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch ${filePath}: ${response.statusText}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById(targetElementId).innerHTML = data;
+            })
+            .catch(error => console.error('Error loading HTML:', error));
+    }
+    // Load header and footer
+    loadHTML('header.html', 'header-placeholder');
+    loadHTML('footer.html', 'footer-placeholder');
+</script>

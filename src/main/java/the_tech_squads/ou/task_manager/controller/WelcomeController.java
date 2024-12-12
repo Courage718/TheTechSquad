@@ -19,5 +19,15 @@ public class WelcomeController {
         return "contact";
     }
 
+    @GetMapping("/about")
+    public String about(){
+        return "about";
+    }
+
+    @GetMapping("/dashboard")
+    public String dashboard(){
+        return "dashboard";
+    }
+
 
 }

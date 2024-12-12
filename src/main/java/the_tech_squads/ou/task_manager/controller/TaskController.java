@@ -24,18 +24,16 @@ public class TaskController {
 
 
     @PostMapping(value = "/task", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String submitTask(@ModelAttribute Task task) {
+    public String submitTask(@ModelAttribute Task task, @SessionAttribute("userId") Long userId) {
+        // Set the user ID in the task object
+        task.setUserId(userId);
+
+        // Save the task using the service
         taskService.save(task);
-        return "bye";
+
+        return "redirect:/tasks"; // Redirect to a success page
     }
 
-    // method to search task by id in db and display on web page
-//    @RequestMapping("/task/{userId}")
-//    public String getTasksByUserId(@PathVariable long userId, Model model) {
-//        List<Task> tasks = taskService.getTasksByUserId(userId);
-//        model.addAttribute("tasks", tasks);
-//        return "task_list";
-//    }
 
     @RequestMapping("/tasks")
     public String getTasksByUserId(HttpSession session, Model model) {
