@@ -96,10 +96,13 @@ public class Pipeline {
 
     public String dateFormatting(Span[] dateSpan, String[] tokens){
 
+        /*
         if (dateSpan.length == 0){
             System.out.println("The spans array is empty, no dates were detected");
             return null;
         }
+
+         */
 
         StringBuilder dateString = new StringBuilder();
 
@@ -110,7 +113,7 @@ public class Pipeline {
         }
 
         String appendedDateString = removeOrdinalSuffixes(dateString.toString().trim());
-        System.out.println("\nAppended date string to be sent to date parser:\n" + appendedDateString);
+        //System.out.println("\nAppended date string to be sent to date parser:\n" + appendedDateString);
 
         DateTimeFormatter[] formatters = {
                 DateTimeFormatter.ofPattern("MMMM d, yyyy"),
@@ -147,6 +150,7 @@ public class Pipeline {
 
     public void spansToString(Span[] timeSpans) {
 
+        /*
         System.out.println("Spans: [");
         for (Span span : timeSpans) {
             for (int i = span.getStart(); i < span.getEnd(); i++) {
@@ -154,6 +158,8 @@ public class Pipeline {
             }
         }
         System.out.print("]\n\n");
+
+         */
     }
 
     //place star here/*

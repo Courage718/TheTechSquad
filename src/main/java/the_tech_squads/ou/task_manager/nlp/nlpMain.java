@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class nlpMain {
-    public String userInput;// input string coming from web
-    public String processedTask;//This will be the name of the task that appears on the website
-    public String date;//this will be used to place the task in a proper location
+    public static String userInput;// input string coming from web
+    public static String processedTask;//This will be the name of the task that appears on the website
+    public static String date;//this will be used to place the task in a proper location
     public String time;
     /*same purpose as the date; however if the calendar does not organize things by time (I.E. it only
     organizes by date), this should be included alongside the processedTask so that the user remembers what time
@@ -22,8 +22,10 @@ public class nlpMain {
     public void setUserInput(String userInput) {
         this.userInput = userInput;
     }
-        Pipeline pipeline = new Pipeline(userInput);
-        public String getProcessedTask(){
+
+    Pipeline pipeline = new Pipeline(userInput);
+
+    public String getProcessedTask(){
         return processedTask;
     }
 
@@ -35,7 +37,7 @@ public class nlpMain {
     }
 
     //rename method later to runNLP
-    public static void main(String[] args) throws IOException{
+    public static void runNLP() throws IOException{
 
         /*
         TaskController controller = new TaskController();
@@ -46,10 +48,9 @@ public class nlpMain {
         //the calendar database or send it to the quartz scheduler to be triggered regularly as a reminder
 
         //temp scanner object for testing
-
-        Scanner scanner = new Scanner(System.in);
-        String userinput = scanner.nextLine();
-        Pipeline pipeline = new Pipeline(userinput);
+        //Scanner scanner = new Scanner(System.in);
+        //String userinput = scanner.nextLine();
+        Pipeline pipeline = new Pipeline(userInput);
 
         pipeline.trainDoccatModel();
 
@@ -61,18 +62,22 @@ public class nlpMain {
 
             //tokenize
             String[] tokens = pipeline.tokenize(sentence);
+
+            /*
             System.out.println("\ntokens (the user's input broken down into an array of words after removing capital letters etc.):\n");
             for (int i = 0; i < tokens.length; i++) {
                 System.out.print("["+tokens[i]+"],     ");
             }
             System.out.println("\n");
+            */
+
             //processing for date detection
             Span[] dateSpan = pipeline.dateRecognition(tokens);
-            System.out.println("Date Spans(list of index ranges from the token array at which there are dates):\n");
+            //System.out.println("Date Spans(list of index ranges from the token array at which there are dates):\n");
             pipeline.spansToString(dateSpan);
 
             String formattedDate = pipeline.dateFormatting(dateSpan, tokens);
-            System.out.println("The formatted date:   " + formattedDate);
+            //System.out.println("The formatted date:   " + formattedDate);
 
             /*
             Span[] timeSpan = pipeline.timeRecognition(tokens);
@@ -81,7 +86,7 @@ public class nlpMain {
             pipeline.spansToString(timeSpan);
             */
 
-            //place star here/*
+
 
             //PROCESSING FOR CATEGORIZATION AND OUTPUT STATEMENT
             String[] POStags = pipeline.POSTag(tokens, pipeline.doccatModel);
@@ -95,20 +100,21 @@ public class nlpMain {
             //Build output statement for the user; gives the user confirmation of the task they set
             outputPrefix = pipeline.prefix.get(category);
 
-            System.out.println("\nOutput statement to the user describing which type of action was taken:\n");
-            System.out.println(outputPrefix);
+            //System.out.println("\nOutput statement to the user describing which type of action was taken:\n");
+            //System.out.println(outputPrefix);
 
-            //place star here*/
+
 
         }
 
         //adds task to task database
 
-        //task.setName(processedTask);
+        Task task = new Task();
+        task.setName(processedTask);
         //task.setDate(date);
 
-        //TaskService taskService = new TaskService();
-        //taskService.save(task);
+        TaskService taskService = new TaskService();
+        taskService.save(task);
 
     }
 
