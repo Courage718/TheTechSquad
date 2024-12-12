@@ -35,7 +35,7 @@ Login:
 The Login page allows users to log in to their accounts and register a new account.
 ![image](https://github.com/user-attachments/assets/d534fcfd-371c-4ad9-80d0-632e7dedebdd)
 
-Creating an Account
+Creating an Account:
 Once registering an account, it will allow you to further overview task made and rank priority for each respective task.
 ![image](https://github.com/user-attachments/assets/0149cf74-c6fd-4129-933f-0449c5d17a8b)
 ![image](https://github.com/user-attachments/assets/417096f2-ca20-42e0-bcca-2eb5e7798065)
