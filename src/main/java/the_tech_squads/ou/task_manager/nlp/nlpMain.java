@@ -37,7 +37,7 @@ public class nlpMain {
     }
 
     //rename method later to runNLP
-    public static void runNLP() throws IOException{
+    public static void main(String[] args) throws IOException{
 
         /*
         TaskController controller = new TaskController();
@@ -48,9 +48,9 @@ public class nlpMain {
         //the calendar database or send it to the quartz scheduler to be triggered regularly as a reminder
 
         //temp scanner object for testing
-        //Scanner scanner = new Scanner(System.in);
-        //String userinput = scanner.nextLine();
-        Pipeline pipeline = new Pipeline(userInput);
+        Scanner scanner = new Scanner(System.in);
+        String userinput = scanner.nextLine();
+        Pipeline pipeline = new Pipeline(userinput);
 
         pipeline.trainDoccatModel();
 
