@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>user input task</title>
-    <link rel="stylesheet" href="/css/userinput_styling.css">
+    <!-- <link rel="stylesheet" href="/css/userinput_styling.css"> -->
     <script src="./task.js" defer> </script>
 </head>
 <style>
@@ -139,7 +139,171 @@
         </ul>
     </nav>
 </header>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
+    h1, h2, h3 {
+        font-weight: bold;
+        color: #334139;
+    }
+
+    header, footer {
+        background-color: #222;
+        color: white;
+        padding: 15px 0;
+    }
+
+    header h1 {
+        margin: 0;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        color: white;
+        font-size: 1.1em;
+        text-decoration: none;
+    }
+
+    nav ul li a:hover {
+        text-decoration: underline;
+        color: #334139;
+    }
+
+    main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #222;
+        border-radius: 8px;
+    }
+
+    section {
+        margin-bottom: 20px;
+    }
+
+    .cols {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .input-area{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 30px;
+        padding: 1em;
+    }
+
+    .submit-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 30px;
+    }
+
+    .submit-btn button{
+        cursor: pointer;
+        width: 50%;
+        height: 40px;
+        border-radius: 40px;
+        font-weight: 500;
+        font-size: 100%;
+    }
+
+    .task-name{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .task-name input{
+        height: 30px;
+        width: 200px;
+    }
+
+    .task-description{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .task-description textarea{
+        width: 400px;
+        height: 100px;
+    }
+    
+    .task-due{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .task-priority{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .view-task{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 40px;
+    }
+
+    .view-task button{
+        cursor: pointer;
+        width: 80%;
+        height: 40px;
+        border-radius: 40px;
+        font-weight: 500;
+        font-size: 100%;
+    }
+
+    footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+        color: #334139;
+    }
+
+    footer .copy-right {
+        font-size: 0.9em;
+        margin-top: 20px;
+        color: #aaa;
+    }
+</style>
 <main>
     <section class="input-section">
 
@@ -174,6 +338,10 @@
 
                 <div class="submit-btn">
                     <button type="submit">Add Task</button>
+                </div>
+
+                <div class="view-task">
+                    <button href="/src/main/resources/templates/task_list.html" type="submit">View Added Task</button>
                 </div>
 
             </form>
