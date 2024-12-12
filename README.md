@@ -25,18 +25,20 @@ The Home page is the default landing page of the website.
 
 About:
 The About page contains information about the website and its creators.
+<img width="1277" alt="image" src="https://github.com/user-attachments/assets/1607240d-c4f3-488d-88c1-d1416f85b16f" />
 
 Contact:
 The Contact page provides ways for users to get in touch with the website's support team.
+![image](https://github.com/user-attachments/assets/eeb005c0-311b-459c-ba58-77bd138f5deb)
 
 Login:
-The Login page allows users to log in to their accounts.
+The Login page allows users to log in to their accounts and register a new account.
+![image](https://github.com/user-attachments/assets/d534fcfd-371c-4ad9-80d0-632e7dedebdd)
 
 Calendar:
 The Calendar page displays a calendar where users can view scheduled tasks and events.
+![image](https://github.com/user-attachments/assets/d10e71c4-f608-4bc2-bd32-c032c19b8a2b)
 
-NLP:
-The NLP page allows users to manage and plan their tasks.
 
 Task Manager:
 The Task Manager page allows users to manage their tasks, 
